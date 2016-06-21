@@ -1,0 +1,26 @@
+$bgColor: #6E8D25;
+$divColor: #fff;
+$sectionColor: #fff;
+$defaultText: black;
+$innerTextColor: $defaultText;
+$outerTextColor: white;
+$titleTextColor: green;
+$sTextColor: yellow;
+$linkColor: $innerTextColor;
+$sectionSpace: 70px;
+$fontFamily: helvetica, Arial, sans-serif;
+$perspectiveFlip: 600px;
+$inForm: white;
+// DARKER BOARDER: #566E10      LIGHTER: #6E8D25
+$navHeadFootColor: #6E8D25;
+$linkBarColorOutside: white;
+$linkBarColorInside: white;
+
+$breakpoints: (
+  xs: 32rem,
+  sm: 48rem,
+  md: 72rem,
+  lg: 96rem,
+  xl: 102rem,
+  xx: 120rem
+);

@@ -1,0 +1,85 @@
+@mixin border-radius($radius: 20px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin border-radiusPick($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin border-radiusHeader($radius: 20px 0 0 0) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin border-radiusFooter($radius: 0 0 0 20px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin linkStuff {
+	padding-left: 20px;
+	position: relative;
+	border-top: 0px solid transparent;
+	display: inline-block;
+	text-decoration: none;
+	color: $defaultText;
+	padding: 3px;
+}
+
+@mixin outsideLinks() {
+	border-top: 2px solid $linkBarColorOutside;
+	//position: absolute;
+	content: '';
+	top: 0px;
+	left: 0px;
+	width: 0;
+	-webkit-transition: 0.3s ease;
+	-moz-transition: 0.3s ease;
+	-ms-transition: 0.3s ease;
+	transition: 0.3s ease;
+}
+
+@mixin outsideHover() {
+	width: 100%;
+	//background: blue;
+	/*box-shadow: -5px -5px 0 grey;
+	transform: translate(5px, 5px);*/
+}
+
+@mixin linkInsideStuff() {
+	position: relative;
+	border-top: 0px solid transparent;
+	display: inline-block;
+	text-decoration: none;
+	color: $defaultText;
+	padding: 3px;
+}
+
+@mixin insideLinks() {
+	border-top: 2px solid $linkBarColorInside;
+	position: absolute;
+	content: '';
+	top: 0px;
+	left: 0px;
+	width: 0;
+	-webkit-transition: 0.3s ease;
+	-moz-transition: 0.3s ease;
+	-ms-transition: 0.3s ease;
+	transition: 0.3s ease;
+}
+
+@mixin insideHover() {
+	width:100%;
+}
+
+@mixin break($size) {  
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
