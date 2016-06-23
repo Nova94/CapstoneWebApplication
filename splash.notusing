@@ -1,0 +1,26 @@
+
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <title>CS CAPSTONE</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/application.css">
+
+  </head>
+  <body>
+			  
+	  <div id="nav">
+		 <div id="iconGreenWhite"></div>
+		 <p class="navHeader">Portland State University Computer Science Capstone</p>
+	 	 <p class="navText">
+	 	 <a href="#" id="login" class="aIn"> Logout </a>
+ 	 	 </p>
+
+	  </div>
+
+	 
+
+		</div>
+	
+	  	<script src="js/jquery-1.9.1.min.js"></script>
+  </body>
