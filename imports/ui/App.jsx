@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Users } from '../api/users.js';
 import User from './User.jsx';
+import GoogleUIWrapper from './GoogleUIWrapper'
 
 
 // App component - represents the whole app
@@ -20,6 +21,8 @@ export default class App extends Component {
                 <header>
                     <h1>User List</h1>
                 </header>
+
+                <GoogleUIWrapper />
 
                 <ul>
                     {this.renderUsers()}

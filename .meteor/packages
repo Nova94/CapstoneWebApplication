@@ -23,3 +23,6 @@ react-meteor-data
 accounts-google
 service-configuration
 react
+accounts-base
+accounts-ui
+accounts-password
