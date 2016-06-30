@@ -1,0 +1,52 @@
+//////////////////////////////////
+/////// HEADER & FOOTER
+//////////////////////////////////
+
+#nav {
+	@include border-radiusPick(0);
+	
+	//margin-left: 10%;
+	height: 60px;
+	background-color: $navHeadFootColor;
+	//display:inline-block;
+	display: inline-block;
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	padding-bottom: 10px;
+	//float:left;
+	//padding: 0 0 0 20px;
+	
+	#iconGreenWhite {
+		@include border-radiusPick(50px);
+		width: 100px;
+		height: 60px;
+		//position: absolute;
+		//padding: .2em 0 0 .2em;
+		//padding-left: 30px;
+		margin-left: 50px;
+		//margin-bottom: 50px;
+		background: url(../img/psuIcon.png) no-repeat;
+		background-size: 70px 70px;
+		float:left;
+		//padding-right: 20px;
+		/*box-shadow: 0 0 1px rgba(0, 0, 0, .8);
+		-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .8);
+		-moz-box-shadow: 0 0 1px rgba(0, 0, 0, .8);*/
+	}	
+}
+
+#footer {
+	@include border-radiusPick(0);
+	height: 60px;
+	background-color: $navHeadFootColor;
+	//margin-left: 10%;
+	width: 100%;
+	
+	p {
+		float:right;
+		margin: 0;
+		padding: 20px 50px 5px 0;
+		font-size: .75em;
+	}
+}

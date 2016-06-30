@@ -2,9 +2,18 @@ import React, { Component, PropTypes } from 'react';
 
 // User component - represents a single user
 export default class User extends Component {
+    handleOnClick() {
+        console.log(this.props.user.firstName);
+    }
+
+    getName() {
+        return this.props.user.firstName;
+    }
     render() {
         return (
-            <li>Name: {this.props.user.firstName + ' ' + this.props.user.lastName}</li>
+            <li onClick={this.handleOnClick.bind(this)}>
+                {this.getName()}
+            </li>
         );
     }
 }
@@ -12,5 +21,5 @@ export default class User extends Component {
 User.propTypes = {
     // This component gets the user's name to display through a React prop.
     // We can use propTypes to indicate it is required
-    user: PropTypes.object.isRequired,
+    user: PropTypes.object.isRequired
 };

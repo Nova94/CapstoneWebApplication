@@ -1,0 +1,57 @@
+// HTML BASES, Body, Headers, tables
+
+
+body {
+	background: $bgColor;
+	font-family: $fontFamily;
+}
+
+p {
+	margin:20px 5%;
+	color: $defaultText;
+	
+	&#cIn {
+		color: $defaultText;
+		font-size: .75em;
+	}
+}
+
+h2 {
+	color: $titleTextColor;
+	margin: 10px 1%;
+}
+
+h3 {
+	color: $titleTextColor;
+	font-size: 1.2em;
+	margin: 4px 1%;
+}
+
+a {
+	color: $linkColor;
+	text-decoration: none;
+}
+
+.ir {
+	font: 0/0 a;
+	text-shadow: none;
+	color: transparent;
+}
+
+/////////////////////////
+////// TABLES
+/////////////////////////
+
+th {
+	text-align: left;
+	color: $defaultText;
+	border: 1px solid black;
+	padding: 2px;
+}
+
+tr {
+	text-align: left;
+	color: $defaultText - 10;
+	border: 1px solid black;
+	padding: 2px;
+}
