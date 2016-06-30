@@ -2,6 +2,8 @@ import { Mongo } from 'meteor/mongo';
 
 export const Reviews = new Mongo.Collection('reviews');
 
+let ratings = ["Poor", "Below Average", "Average", "Above Average", "Excellent", "Unknown or N/A"];
+
 Reviews.attachSchema(SimpleSchema({
     "reviewer": {
         type: String,
@@ -17,47 +19,56 @@ Reviews.attachSchema(SimpleSchema({
         allowedValues: ["midterm", "final"]
     },
     "fields.$.technical": {
-        type: Number,
-        label: "Technical"
+        type: String,
+        label: "Technical Skill",
+        allowedValues: ratings
     },
     "fields.$.workEthic": {
-        type: Number,
-        label: "Work Ethic"
+        type: String,
+        label: "Work Ethic",
+        allowedValues: ratings
     },
     "fields.$.communication": {
-        type: Number,
-        label: "Communication"
+        type: String,
+        label: "Communication",
+        allowedValues: ratings
     },
     "fields.$.initiative": {
-        type: Number,
-        label: "Initiative"
+        type: String,
+        label: "Initiative",
+        allowedValues: ratings
     },
     "fields.$.teamFocus": {
-        type: Number,
-        label: "Team Focus"
+        type: String,
+        label: "Team Focus",
+        allowedValues: ratings
     },
     "fields.$.contribution": {
-        type: Number,
-        label: "Contribution"
+        type: String,
+        label: "Contribution",
+        allowedValues: ratings
     },
     "fields.$.teamLead.leadership": {
-        type: Number,
+        type: String,
         label: "Leadership",
+        allowedValues: ratings,
         optional: true
     },
     "fields.$.teamLead.organization": {
-        type: Number,
+        type: String,
         label: "Organization",
+        allowedValues: ratings,
         optional: true
     },
     "fields.$.teamLead.delegation": {
-        type: Number,
+        type: String,
         label: "Delegation",
+        allowedValues: ratings,
         optional: true
     },
     "points": {
         type: Number,
-        label: "Total Points",
+        label: "Point Allocation",
         min: 0,
         max: 100
     },
