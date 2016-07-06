@@ -14,15 +14,16 @@ export default class App extends Component {
     
     render() {
         return (
-            <div className="container">
-                <header>
-                    <h1>Capstone Web Application</h1>
-                </header>
-                
-
-                <h2>Team Members</h2>
-                {this.getReviewContent()}
-            </div>
+			<div className="container">
+				<div id="navBar">  
+					<div id="psuBarIcon"></div>
+					<p id="psuHeaderText">Portland State University Capstone Website</p>
+					<p id="psuLogin">Login</p>
+				</div>
+               
+            	<h2>Team Members</h2>
+               {this.getReviewContent()}
+           </div>
         );
     }
 }
