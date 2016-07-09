@@ -1,4 +1,4 @@
-import { Mongo } from 'meteor/mongo';
+/*import { Mongo } from 'meteor/mongo';
 
 export const Reviews = new Mongo.Collection('reviews');
 
@@ -84,4 +84,4 @@ Reviews.attachSchema(SimpleSchema({
         type: String,
         label: "Traits"
     }
-}));
+}));*/
