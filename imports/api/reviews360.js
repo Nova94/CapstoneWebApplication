@@ -2,7 +2,6 @@ Reviews360 = new Mongo.Collection('reviews360');
 
 let ratings = ["Poor", "Below Average", "Average", "Above Average", "Excellent", "Unknown or N/A"];
 
-//
 Reviews360.attachSchema(new SimpleSchema({
     "reviewer": {
         type: String,
@@ -198,3 +197,5 @@ Reviews360.attachSchema(new SimpleSchema({
         }
     }
 }));
+
+export default Reviews360;
