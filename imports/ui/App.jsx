@@ -13,11 +13,6 @@ export default class App extends Component {
     getReviewContent() {
         return (<ReviewList/>);
     }
-
-    getReviews() {
-        console.log(Reviews);
-        return Reviews;
-    }
     
     render() {
         return (
