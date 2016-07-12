@@ -1,5 +1,4 @@
 import { Mongo } from 'meteor/mongo';
-import { Template } from 'meteor/templating';
 
 export const Reviews = new Mongo.Collection('reviews');
 
@@ -17,7 +16,7 @@ Reviews.attachSchema(new SimpleSchema({
     "reviewType": {
         type: String,
         label: "Type of Review",
-        allowedValues: ["Midterm", "Final"],
+        allowedValues: ["midterm", "final"],
         autoform: {
             options: [
                 {label: "Midterm", value: "midterm"},
@@ -206,5 +205,3 @@ Reviews.attachSchema(new SimpleSchema({
         }
     }
 }));
-
-Template.registerHelper("Reviews", Reviews);
