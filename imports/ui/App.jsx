@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 // components
 import ReviewList from './ReviewList.jsx';
 import ReviewForm from './ReviewForm';
-import GoogleUIWrapper from './GoogleUIWrapper'
+import GoogleUIWrapper from './GoogleUIWrapper';
+import { Reviews } from '../api/reviews'; //Do Not Remove
 
 // App component - represents the whole app
 export default class App extends Component {
