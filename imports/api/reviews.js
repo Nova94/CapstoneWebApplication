@@ -1,10 +1,11 @@
-/*import { Mongo } from 'meteor/mongo';
+import { Mongo } from 'meteor/mongo';
+import { Template } from 'meteor/templating';
 
 export const Reviews = new Mongo.Collection('reviews');
 
 let ratings = ["Poor", "Below Average", "Average", "Above Average", "Excellent", "Unknown or N/A"];
 
-Reviews.attachSchema(SimpleSchema({
+Reviews.attachSchema(new SimpleSchema({
     "reviewer": {
         type: String,
         label: "Reviewer"
@@ -15,56 +16,155 @@ Reviews.attachSchema(SimpleSchema({
     },
     "reviewType": {
         type: String,
-        label: "Type",
-        allowedValues: ["midterm", "final"]
+        label: "Type of Review",
+        allowedValues: ["Midterm", "Final"]
     },
-    "fields.$.technical": {
+    "technical": {
         type: String,
         label: "Technical Skill",
-        allowedValues: ratings
+        allowedValues: ratings,
+        autoform: {
+            type: "select-radio-inline",
+            options:{
+                Poor: "Poor",
+                'Below Average': "Below Average",
+                Average: "Average",
+                'Above Average': "Above Average",
+                Excellent: "Excellent",
+                'Unknown or N/A': "Unknown or N/A"
+            }
+        }
     },
-    "fields.$.workEthic": {
+    "workEthic": {
         type: String,
         label: "Work Ethic",
-        allowedValues: ratings
+        allowedValues: ratings,
+        autoform: {
+            type: "select-radio-inline",
+            options:{
+                Poor: "Poor",
+                'Below Average': "Below Average",
+                Average: "Average",
+                'Above Average': "Above Average",
+                Excellent: "Excellent",
+                'Unknown or N/A': "Unknown or N/A"
+            }
+        }
     },
-    "fields.$.communication": {
+    "communication": {
         type: String,
         label: "Communication",
-        allowedValues: ratings
+        allowedValues: ratings,
+        autoform: {
+            type: "select-radio-inline",
+            options:{
+                Poor: "Poor",
+                'Below Average': "Below Average",
+                Average: "Average",
+                'Above Average': "Above Average",
+                Excellent: "Excellent",
+                'Unknown or N/A': "Unknown or N/A"
+            }
+        }
     },
-    "fields.$.initiative": {
+    "initiative": {
         type: String,
         label: "Initiative",
-        allowedValues: ratings
+        allowedValues: ratings,
+        autoform: {
+            type: "select-radio-inline",
+            options:{
+                Poor: "Poor",
+                'Below Average': "Below Average",
+                Average: "Average",
+                'Above Average': "Above Average",
+                Excellent: "Excellent",
+                'Unknown or N/A': "Unknown or N/A"
+            }
+        }
     },
-    "fields.$.teamFocus": {
+    "teamFocus": {
         type: String,
         label: "Team Focus",
-        allowedValues: ratings
+        allowedValues: ratings,
+        autoform: {
+            type: "select-radio-inline",
+            options:{
+                Poor: "Poor",
+                'Below Average': "Below Average",
+                Average: "Average",
+                'Above Average': "Above Average",
+                Excellent: "Excellent",
+                'Unknown or N/A': "Unknown or N/A"
+            }
+        }
     },
-    "fields.$.contribution": {
+    "contribution": {
         type: String,
         label: "Contribution",
-        allowedValues: ratings
+        allowedValues: ratings,
+        autoform: {
+            type: "select-radio-inline",
+            options:{
+                Poor: "Poor",
+                'Below Average': "Below Average",
+                Average: "Average",
+                'Above Average': "Above Average",
+                Excellent: "Excellent",
+                'Unknown or N/A': "Unknown or N/A"
+            }
+        }
     },
-    "fields.$.teamLead.leadership": {
+    "teamLead.leadership": {
         type: String,
         label: "Leadership",
         allowedValues: ratings,
-        optional: true
+        optional: true,
+        autoform: {
+            type: "select-radio-inline",
+            options:{
+                Poor: "Poor",
+                'Below Average': "Below Average",
+                Average: "Average",
+                'Above Average': "Above Average",
+                Excellent: "Excellent",
+                'Unknown or N/A': "Unknown or N/A"
+            }
+        }
     },
-    "fields.$.teamLead.organization": {
+    "teamLead.organization": {
         type: String,
         label: "Organization",
         allowedValues: ratings,
-        optional: true
+        optional: true,
+        autoform: {
+            type: "select-radio-inline",
+            options:{
+                Poor: "Poor",
+                'Below Average': "Below Average",
+                Average: "Average",
+                'Above Average': "Above Average",
+                Excellent: "Excellent",
+                'Unknown or N/A': "Unknown or N/A"
+            }
+        }
     },
-    "fields.$.teamLead.delegation": {
+    "teamLead.delegation": {
         type: String,
         label: "Delegation",
         allowedValues: ratings,
-        optional: true
+        optional: true,
+        autoform: {
+            type: "select-radio-inline",
+            options:{
+                Poor: "Poor",
+                'Below Average': "Below Average",
+                Average: "Average",
+                'Above Average': "Above Average",
+                Excellent: "Excellent",
+                'Unknown or N/A': "Unknown or N/A"
+            }
+        }
     },
     "points": {
         type: Number,
@@ -74,14 +174,31 @@ Reviews.attachSchema(SimpleSchema({
     },
     "strengths": {
         type: String,
-        label: "Strengths"
+        label: "Strengths",
+        autoform: {
+            afFieldInput: {
+                type: "textarea"
+            }
+        }
     },
     "weakness": {
         type: String,
-        label: "Weakness"
+        label: "Weakness",
+        autoform: {
+            afFieldInput: {
+                type: "textarea"
+            }
+        }
     },
     "traitSuggestion": {
         type: String,
-        label: "Traits"
+        label: "Traits",
+        autoform: {
+            afFieldInput: {
+                type: "textarea"
+            }
+        }
     }
-}));*/
+}));
+
+Template.registerHelper("Reviews", Reviews);

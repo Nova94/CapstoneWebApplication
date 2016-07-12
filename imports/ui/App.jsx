@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // import GoogleUIWrapper from './GoogleUIWrapper'
 import ReviewList from './ReviewList.jsx';
 import ReviewForm from './ReviewForm';
-import { Reviews360 } from '../api/reviews360';
+import { Reviews } from '../api/reviews';
 
 
 // App component - represents the whole app
@@ -13,9 +13,9 @@ export default class App extends Component {
         return (<ReviewList/>);
     }
 
-    getReview360() {
-        console.log(Reviews360);
-        return Reviews360;
+    getReviews() {
+        console.log(Reviews);
+        return Reviews;
     }
     
     render() {
@@ -28,7 +28,7 @@ export default class App extends Component {
 				</div>
                
             	<h2>Team Members</h2>
-               <ReviewForm id="ReviewFormTemplate" collection={ this.getReview360() } type="insert"/>
+               <ReviewForm />
            </div>
         );
     }
