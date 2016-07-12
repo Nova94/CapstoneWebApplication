@@ -25,9 +25,8 @@ export default class App extends Component {
 				<div id="navBar">  
 					<div id="psuBarIcon"></div>
 					<p id="psuHeaderText">Portland State University Capstone Website</p>
-            <GoogleUIWrapper />
         </div>
-               
+          <GoogleUIWrapper />
           <h2>Team Members</h2>
           <ReviewForm />
       </div>

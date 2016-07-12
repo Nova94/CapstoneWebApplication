@@ -18,7 +18,6 @@ export default class ReviewForm extends Component {
     }
 
     render() {
-        console.log(this.view);
         // Just render a placeholder container that will be filled in
         return <span ref="container" />;
     }

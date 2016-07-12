@@ -1,23 +1,21 @@
 /* Any CSS needs to be compatible with bootstrap3 */
 
 
-/*body {*/
-    /*font-family: sans-serif;*/
+body {
+    font-family: sans-serif;
     /*background-color: #6E8D25;*/
-   /*!* background-image: linear-gradient(to bottom, #315481, #918e82 100%);*/
-    /*background-attachment: fixed;*!*/
 
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*bottom: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-    /*padding: 0;*/
-    /*margin: 0;*/
+    padding: 0;
+    margin: 0;
 
-    /*font-size: 14px;*/
-/*}*/
+    font-size: 14px;
+}
 
 /*div {*/
 	/*display: inline-block;*/
@@ -32,25 +30,25 @@
     /*background: white;*/
 /*}*/
 
-/*!**/
-/*header {*/
-    /*background: #d2edf4;*/
-    /*background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);*/
-    /*padding: 20px 15px 15px 15px;*/
+
+header {
+    background: #d2edf4;
+    background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+    padding: 20px 15px 15px 15px;
     /*position: relative;*/
-/*}*!*/
+}
 
 /*#login-buttons {*/
     /*display: block;*/
 /*}*/
 
-/*h1 {*/
-    /*font-size: 1.5em;*/
-    /*margin: 0;*/
-    /*margin-bottom: 10px;*/
-    /*display: inline-block;*/
-    /*margin-right: 1em;*/
-/*}*/
+h1 {
+    font-size: 1.5em;
+    margin: 0;
+    margin-bottom: 10px;
+    display: inline-block;
+    margin-right: 1em;
+}
 
 /*form {*/
     /*margin-top: 10px;*/
@@ -124,37 +122,40 @@
 	/*NAV BAR*/
 /******************************************************!*/
 
-/*#navBar {*/
-	/*width: 100%;*/
-	/*background-color: #6E8D25;*/
-/*}*/
+#navBar {
+	width: 100%;
+	background-color: #6E8D25;
+}
 
-/*#psuHeaderText {*/
-	/*display: inline-block;*/
-	/*font-size: 1.8em;*/
-	/*color: white;*/
-	/*text-shadow: 1px 1px 1px black;*/
-	/*border-radius: 0px;*/
-/*}*/
+#psuHeaderText {
+	display: inline-block;
+	font-size: 1.8em;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+	border-radius: 0px;
+}
 
-/*#psuLogin {*/
-	/*color: black;*/
-	/*font-size: 1.3em;*/
-	/*float: right;*/
-	/*margin-left: 10%;*/
-/*}*/
+#insertReview {
+    margin-bottom: 10%
+}
+#login {
+	color: black;
+	font-size: 1.3em;
+	float: right;
+	margin-left: 10%;
+}
 
-/*#psuBarIcon {*/
-	/*width: 100px;*/
-	/*height: 60px;*/
-	/*margin-left: 50px;*/
-	/*background: url(../../img/psuIcon.png) no-repeat;*/
-	/*background-size: 70px 70px;*/
-	/*float:left;*/
-	/*!*box-shadow: 0 0 1px rgba(0, 0, 0, .8);*/
-	/*-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .8);*/
-	/*-moz-box-shadow: 0 0 1px rgba(0, 0, 0, .8);*!*/
-/*}*/
+#psuBarIcon {
+	width: 100px;
+	height: 60px;
+	margin-left: 50px;
+	background: url(../../img/psuIcon.png) no-repeat;
+	background-size: 70px 70px;
+	float:left;
+	/*box-shadow: 0 0 1px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 1px rgba(0, 0, 0, .8);*/
+}
 
 
 /*@media (max-width: 600px) {*/
