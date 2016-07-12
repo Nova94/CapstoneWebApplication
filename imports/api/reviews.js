@@ -17,9 +17,15 @@ Reviews.attachSchema(new SimpleSchema({
     "reviewType": {
         type: String,
         label: "Type of Review",
-        allowedValues: ["Midterm", "Final"]
+        allowedValues: ["Midterm", "Final"],
+        autoform: {
+            options: [
+                {label: "Midterm", value: "midterm"},
+                {label: "Final", value: "final"}
+            ]
+        }
     },
-    "technical": {
+    "fields.technical": {
         type: String,
         label: "Technical Skill",
         allowedValues: ratings,
@@ -35,7 +41,7 @@ Reviews.attachSchema(new SimpleSchema({
             }
         }
     },
-    "workEthic": {
+    "fields.workEthic": {
         type: String,
         label: "Work Ethic",
         allowedValues: ratings,
@@ -51,7 +57,7 @@ Reviews.attachSchema(new SimpleSchema({
             }
         }
     },
-    "communication": {
+    "fields.communication": {
         type: String,
         label: "Communication",
         allowedValues: ratings,
@@ -67,7 +73,7 @@ Reviews.attachSchema(new SimpleSchema({
             }
         }
     },
-    "initiative": {
+    "fields.initiative": {
         type: String,
         label: "Initiative",
         allowedValues: ratings,
@@ -83,7 +89,7 @@ Reviews.attachSchema(new SimpleSchema({
             }
         }
     },
-    "teamFocus": {
+    "fields.teamFocus": {
         type: String,
         label: "Team Focus",
         allowedValues: ratings,
@@ -99,7 +105,7 @@ Reviews.attachSchema(new SimpleSchema({
             }
         }
     },
-    "contribution": {
+    "fields.contribution": {
         type: String,
         label: "Contribution",
         allowedValues: ratings,
