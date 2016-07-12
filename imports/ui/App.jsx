@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 
 // components
-// import GoogleUIWrapper from './GoogleUIWrapper'
 import ReviewList from './ReviewList.jsx';
 import ReviewForm from './ReviewForm';
-import { Reviews } from '../api/reviews';
 import GoogleUIWrapper from './GoogleUIWrapper'
-
 
 // App component - represents the whole app
 export default class App extends Component {
