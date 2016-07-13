@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 // components
 import ReviewList from './ReviewList.jsx';
 import ReviewForm from './ReviewForm';
+import ResumeForm from './ResumeForm';
 import GoogleUIWrapper from './GoogleUIWrapper';
 import { Reviews } from '../api/reviews'; //Do Not Remove
+import { Resumes } from '../api/resumes'; //Do Not Remove
 
 // App component - represents the whole app
 export default class App extends Component {
@@ -21,7 +23,7 @@ export default class App extends Component {
                 </div>
                 <GoogleUIWrapper />
                 <h2>Team Members</h2>
-                <ReviewForm />
+                <ResumeForm />
             </div>
         );
     }

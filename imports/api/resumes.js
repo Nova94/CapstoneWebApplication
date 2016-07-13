@@ -1,5 +1,4 @@
 import { Mongo } from 'meteor/mongo';
-import { Template } from 'meteor/templating';
 
 export const Resumes = new Mongo.Collection('Resumes');
 
@@ -143,17 +142,30 @@ Resumes.attachSchema(new SimpleSchema({
         type: String,
         label: "PDX Email"
     },
-    "skills": {
-        label: "Software Engineering Knowledge and Skills"
-    },
+    // "skills": {
+    //     label: "Software Engineering Knowledge and Skills"
+    // },
     "skills.$.skill": {
         type: String,
         label: "Skill/Knowledge"
     },
-    "education.degrees.$.degree": Degree,
-    "education.projects.$.project": Project,
-    "education.courses.$.course": Course,
-    "work.experiences.$.experience": WorkExperience,
+    "degrees.$.degree": {
+        type: Degree,
+        label: "Degree"
+    },
+    "projects.$.project":
+    {
+        type: Project,
+        label: "Project"
+    },
+    "courses.$.course": {
+        type: Course,
+        label: "Course"
+    },
+    "workExperience.$.position": {
+        type: WorkExperience,
+        label: "Position"
+    },
     "technologySummary": {
         type: String,
         label: "Technology Summary",
@@ -166,5 +178,3 @@ Resumes.attachSchema(new SimpleSchema({
     }
 
 }));
-
-Template.registerHelper("Resumes", Resumes);

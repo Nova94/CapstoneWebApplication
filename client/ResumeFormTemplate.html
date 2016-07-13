@@ -1,0 +1,18 @@
+<template name="ResumeFormTemplate">
+    <h1>Create Resume</h1>
+    {{#autoForm collection=Resumes id="insertResume" type="insert"}}
+        <fieldset>
+            {{> afQuickField name='name'}}
+            {{> afQuickField name='cellphone'}}
+            {{> afQuickField name='email'}}
+            <!--{{> afQuickField name='skills'}}-->
+            {{> afQuickField name='degrees'}}
+            {{> afQuickField name='projects'}}
+            {{> afQuickField name='courses'}}
+            {{> afQuickField name='workExperience'}}
+            {{> afQuickField name='technologySummary'}}
+            {{> afQuickField name='otherInformation'}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="alert('Your resume has been submitted.')">Submit</button>
+    {{/autoForm}}
+</template>
