@@ -1,6 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 
-export const Resumes = new Mongo.Collection('Resumes');
+export const Resumes = new Mongo.Collection('resumes');
 
 let Degree = new SimpleSchema({
     "school": {
