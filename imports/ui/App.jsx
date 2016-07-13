@@ -24,6 +24,7 @@ export default class App extends Component {
                 <GoogleUIWrapper />
                 <h2>Team Members</h2>
                 <ResumeForm />
+                <ReviewForm />
             </div>
         );
     }
