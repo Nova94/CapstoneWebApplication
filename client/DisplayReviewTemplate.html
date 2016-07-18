@@ -1,6 +1,7 @@
-<template name="ReviewFormTemplate">
-    <h1>Add Review</h1>
-    {{#autoForm collection=Reviews id="insertReview" type="insert"}}
+<template name="DisplayReviewTemplate">
+    <h1>Current Review</h1>
+
+    {{#autoForm collection=Reviews id="displayReview" type="readonly" doc=this}}
         <fieldset>
             {{> afQuickField name='reviewer'}}
             {{> afQuickField name='reviewee'}}
@@ -18,9 +19,8 @@
             {{> afQuickField name='traitSuggestion' rows=7}}
             {{> afQuickField name='points'}}
         </fieldset>
-        <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="alert('Your review has been submitted.')">Submit</button>
+        <!-- <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="alert('Your review has been submitted.')">Submit</button> -->
     {{/autoForm}}
+    <a class="btn btn-primary btn-lg btn-block" href="/">Done</a>
 
 </template>
-
-
