@@ -26,7 +26,7 @@ export default class StudentInfo extends Component {
     getSubmittedButton() {
         return(
             <div>
-                <OverlayTrigger placement="left" overlay={<Tooltip>This 360 review form is complete</Tooltip>}>
+                <OverlayTrigger delayShow="400" placement="left" overlay={<Tooltip>This 360 review form is complete</Tooltip>}>
                     <Button bsStyle="success" bsSize="xsmall">
                         <span className="glyphicon glyphicon-ok"/>
                     </Button>
@@ -37,7 +37,7 @@ export default class StudentInfo extends Component {
 
     getUnsubmittedButton() {
         return(
-            <OverlayTrigger placement="left" overlay={<Tooltip>Please complete this 360 review form</Tooltip>}>
+            <OverlayTrigger delayShow="400" placement="left" overlay={<Tooltip>Please complete this 360 review form</Tooltip>}>
                 <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}>
                     <span className="glyphicon glyphicon-remove"/>
                 </Button>
