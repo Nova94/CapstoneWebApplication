@@ -55,7 +55,7 @@ export default class StudentInfo extends Component {
                     <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}>
                         <span className="glyphicon glyphicon-remove"/>
                     </Button>
-                    <Modal show={this.state.showModal} onHide={this.closeModal}>
+                    <Modal bsSize ="large" show={this.state.showModal} onHide={this.closeModal}>
                             <Modal.Header>
                                 <Modal.Title>360 Final Review</Modal.Title>
                             </Modal.Header>
