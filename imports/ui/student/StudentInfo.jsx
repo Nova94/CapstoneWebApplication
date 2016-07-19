@@ -16,28 +16,59 @@ export default class StudentInfo extends Component {
         this.openModal = this.openModal.bind(this);
     }
 
-    closeModal()
-    {
-        this.setState({ showModal: false });
+    closeModal() {
+        this.setState({showModal: false});
     }
 
-    openModal()
-    {
-        this.setState({ showModal: true });
+    openModal() {
+        this.setState({showModal: true});
+    }
+
+    getSubmittedButton() {
+        return(
+            <div>
+                <Button bsStyle="success" bsSize="xsmall">
+                    <span className="glyphicon glyphicon-ok"/>
+                </Button>
+            </div>
+        );
+    }
+
+    getUnsubmittedButton() {
+        return(
+            <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}>
+                <span className="glyphicon glyphicon-remove"/>
+            </Button>
+        );
+    }
+
+    get360Form() {
+        return (
+            <div>
+                {this.getUnsubmittedButton()}
+                <Modal bsSize ="large" show={this.state.showModal} onHide={this.closeModal}>
+                    <Modal.Header>
+                        <Modal.Title>360 Review</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <ReviewForm/>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={this.closeModal}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
+        );
     }
 
     getMid360Field() {
         if(this.props.student.mid360.completed) {
             return (
-                <Button bsStyle="success" bsSize="xsmall">
-                    <span className="glyphicon glyphicon-ok"/>
-                </Button>
+                this.getSubmittedButton()
             );
         } else {
             return (
-                <Button bsStyle="danger" bsSize="xsmall">
-                    <span className="glyphicon glyphicon-remove"/>
-                </Button>
+                this.get360Form()
             );
         }
     }
@@ -45,29 +76,11 @@ export default class StudentInfo extends Component {
     getFinal360Field() {
         if(this.props.student.final360.completed) {
             return (
-                <Button bsStyle="success" bsSize="xsmall">
-                    <span className="glyphicon glyphicon-ok"/>
-                </Button>
+                this.getSubmittedButton()
             );
         } else {
             return (
-                <div>
-                    <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}>
-                        <span className="glyphicon glyphicon-remove"/>
-                    </Button>
-                    <Modal bsSize ="large" show={this.state.showModal} onHide={this.closeModal}>
-                            <Modal.Header>
-                                <Modal.Title>360 Final Review</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <ReviewForm/>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button onClick={this.closeModal}>Close</Button>
-                                <Button bsStyle="primary">Submit Form</Button>
-                            </Modal.Footer>
-                    </Modal>
-                </div>
+                this.get360Form()
             );
         }
     }
