@@ -22,8 +22,10 @@ export default class App extends Component {
                     <div id="psuBarIcon"></div>
                     <p id="psuHeaderText">Portland State University Capstone Website</p>
                 </div>
-                <StudentDashboard/>
                 <GoogleUIWrapper />
+                <br></br>
+                <br></br>
+                <StudentDashboard/>
             </div>
         );
     }

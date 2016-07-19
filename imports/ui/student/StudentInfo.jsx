@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import {Button} from 'react-bootstrap';
-import {Modal} from 'react-bootstrap';
+import {Button, Modal, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 import ReviewForm from '../forms/ReviewForm';
 
@@ -27,18 +26,22 @@ export default class StudentInfo extends Component {
     getSubmittedButton() {
         return(
             <div>
-                <Button bsStyle="success" bsSize="xsmall">
-                    <span className="glyphicon glyphicon-ok"/>
-                </Button>
+                <OverlayTrigger placement="left" overlay={<Tooltip>This 360 review form is complete</Tooltip>}>
+                    <Button bsStyle="success" bsSize="xsmall">
+                        <span className="glyphicon glyphicon-ok"/>
+                    </Button>
+                </OverlayTrigger>
             </div>
         );
     }
 
     getUnsubmittedButton() {
         return(
-            <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}>
-                <span className="glyphicon glyphicon-remove"/>
-            </Button>
+            <OverlayTrigger placement="left" overlay={<Tooltip>Please complete this 360 review form</Tooltip>}>
+                <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}>
+                    <span className="glyphicon glyphicon-remove"/>
+                </Button>
+            </OverlayTrigger>
         );
     }
 
@@ -47,7 +50,7 @@ export default class StudentInfo extends Component {
             <div>
                 {this.getUnsubmittedButton()}
                 <Modal bsSize ="large" show={this.state.showModal} onHide={this.closeModal}>
-                    <Modal.Header>
+                    <Modal.Header closeButton>
                         <Modal.Title>360 Review</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
