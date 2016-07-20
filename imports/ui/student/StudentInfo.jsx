@@ -4,6 +4,7 @@ import {Button, Modal, OverlayTrigger, Tooltip} from 'react-bootstrap';
 import ReviewForm from '../forms/ReviewForm';
 
 export default class StudentInfo extends Component {
+
     constructor(props) {
         super(props);
 
@@ -15,40 +16,28 @@ export default class StudentInfo extends Component {
         this.openModal = this.openModal.bind(this);
     }
 
-    closeModal() {
-        this.setState({showModal: false});
+    closeModal() { 
+        this.setState({showModal: false}); 
+    }
+    
+    openModal() { 
+        this.setState({showModal: true}); 
     }
 
-    openModal() {
-        this.setState({showModal: true});
-    }
-
-    getSubmittedButton() {
+    getButton(bsStyle, glyphicon, message, onClick) {
         return(
-            <div>
-                <OverlayTrigger delayShow="400" placement="left" overlay={<Tooltip>This 360 review form is complete</Tooltip>}>
-                    <Button bsStyle="success" bsSize="xsmall">
-                        <span className="glyphicon glyphicon-ok"/>
+                <OverlayTrigger delayShow="400" placement="left" overlay={<Tooltip>{message}</Tooltip>}>
+                    <Button bsStyle={bsStyle} bsSize="xsmall" onClick={onClick}>
+                        <span className={glyphicon}/>
                     </Button>
                 </OverlayTrigger>
-            </div>
-        );
-    }
-
-    getUnsubmittedButton() {
-        return(
-            <OverlayTrigger delayShow="400" placement="left" overlay={<Tooltip>Please complete this 360 review form</Tooltip>}>
-                <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}>
-                    <span className="glyphicon glyphicon-remove"/>
-                </Button>
-            </OverlayTrigger>
         );
     }
 
     get360Form() {
         return (
             <div>
-                {this.getUnsubmittedButton()}
+                {this.getButton('danger', 'glyphicon glyphicon-remove', 'Please complete this 360 review form', this.openModal)}
                 <Modal bsSize ="large" show={this.state.showModal} onHide={this.closeModal}>
                     <Modal.Header closeButton>
                         <Modal.Title>360 Review</Modal.Title>
@@ -63,31 +52,13 @@ export default class StudentInfo extends Component {
             </div>
         );
     }
-
-    getMid360Field() {
-        if(this.props.student.mid360.completed) {
-            return (
-                this.getSubmittedButton()
-            );
-        } else {
-            return (
-                this.get360Form()
-            );
-        }
+    
+    get360ReviewField(type) {
+        return this.props.student[type].completed ?
+            this.getButton('success', 'glyphicon glyphicon-ok', 'This 360 review form is complete') :
+            this.get360Form();
     }
-
-    getFinal360Field() {
-        if(this.props.student.final360.completed) {
-            return (
-                this.getSubmittedButton()
-            );
-        } else {
-            return (
-                this.get360Form()
-            );
-        }
-    }
-
+    
     render() {
         return (
                 <tr>
@@ -95,12 +66,12 @@ export default class StudentInfo extends Component {
                     <td>{this.props.student.email}</td>
                     <td>
                         <center>
-                            {this.getMid360Field()}
+                            {this.get360ReviewField('mid360')}
                         </center>
                     </td>
                     <td>
                         <center>
-                            {this.getFinal360Field()}
+                            {this.get360ReviewField('final360')}
                         </center>
                     </td>
                 </tr>
