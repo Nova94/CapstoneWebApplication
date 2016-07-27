@@ -15,6 +15,6 @@ export default class GoogleUIWrapper extends Component {
 
     render() {
         // Just render a placeholder container that will be filled in
-        return <span ref="container" />;
+        return <span id="login" ref="container" />;
     }
 }

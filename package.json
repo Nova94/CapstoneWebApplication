@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "meteor-node-stubs": "~0.2.0",
+    "meteor-react-autoform": "^0.2.21",
     "react": "^15.1.0",
     "react-addons-create-fragment": "^15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
@@ -15,6 +16,7 @@
     "react-addons-test-utils": "^15.1.0",
     "react-addons-transition-group": "^15.1.0",
     "react-addons-update": "^15.1.0",
+    "react-bootstrap": "^0.29.5",
     "react-dom": "^15.1.0"
   }
 }
