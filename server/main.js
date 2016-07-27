@@ -2,11 +2,14 @@ import '../imports/api/users.js';
 import '../imports/api/reviews.js';
 import '../imports/api/resumes.js';
 
-/* TODO: this can be used to add fields (resume reviews team) to user objects in mongodb
 Accounts.onCreateUser((options, user) => {
-
-
-});*/
+    user.reviews = [];
+    user.resume = {};
+    user.role = '';
+    user.team = {};
+    
+    return user
+});
 
 Accounts.validateNewUser((user) => {
     let whitelist = Assets.getText('whitelist.csv');
