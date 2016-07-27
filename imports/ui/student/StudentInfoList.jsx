@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import {Table} from 'react-bootstrap';
+import {Table, Panel} from 'react-bootstrap';
 import StudentInfo from './StudentInfo';
 
 export default class StudentInfoList extends Component {
@@ -32,10 +32,12 @@ export default class StudentInfoList extends Component {
 
     render() {
         return (
-            <Table striped bordered condensed>
-                {this.getStudentInfoHeader()}
-                {this.renderStudentInfoList()}
-            </Table>
+            <Panel defaultExpanded header="Reviews List" bsStyle="info">
+                <Table fill striped bordered condensed>
+                    {this.getStudentInfoHeader()}
+                    {this.renderStudentInfoList()}
+                </Table>
+            </Panel>
         );
     }
 }
