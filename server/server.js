@@ -1,6 +1,51 @@
 import { Reviews } from '../imports/api/reviews.js';
 import { Users } from '../imports/api/users.js';
-
+// Meteor.methods({
+//     'getTeamById': () => {
+//         return [
+//             {
+//                 name: 'Bob',
+//                 email: 'bob@gmail.com',
+//                 team: 'winning team',
+//                 mid360: {
+//                     completed: true,
+//                     id: 123
+//                 },
+//                 final360: {
+//                     completed: false,
+//                     id: 124
+//                 },
+//             },
+//             {
+//                 name: 'Jessica',
+//                 email: 'jessica@gmail.com',
+//                 team: 'winning team',
+//                 mid360: {
+//                     completed: true,
+//                     id: 123
+//                 },
+//                 final360: {
+//                     completed: true,
+//                     id: 124
+//                 },
+//             },
+//             {
+//                 name: 'Sam',
+//                 email: 'sam@gmail.com',
+//                 team: 'winning team',
+//                 mid360: {
+//                     completed: true,
+//                     id: 123
+//                 },
+//                 final360: {
+//                     completed: false,
+//                     id: 124
+//                 },
+//             },
+//         ];
+//
+//     });
+// },
 
 // route to display all reviews that a specified reviewer has submitted
 Router.route('/reviews/:reviewer', {where: 'server'})

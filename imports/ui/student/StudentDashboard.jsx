@@ -7,6 +7,7 @@ export default class StudentDashboard extends Component {
     }
 
     getStudentData() {
+        // Meteor.call('getTeamById');
         return [
             {
                 name: 'Bob',
@@ -52,7 +53,10 @@ export default class StudentDashboard extends Component {
 
     render() {
         return (
-            <StudentInfoList students={this.getStudentData()}/>
+            <div>
+                <h2>Student Dashboard</h2>
+                <StudentInfoList students={this.getStudentData()}/>
+            </div>
         );
     }
 }

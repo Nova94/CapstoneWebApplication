@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-
-// components
-import ReviewForm from './forms/ReviewForm';
-import ResumeForm from './forms/ResumeForm';
-import { Button } from 'react-bootstrap';
-import StudentDashboard from './student/StudentDashboard';
-
 import GoogleUIWrapper from './GoogleUIWrapper';
 import { Reviews } from '../api/reviews'; //Do Not Remove
 import { Resumes } from '../api/resumes'; //Do Not Remove
@@ -23,9 +16,10 @@ export default class App extends Component {
                     <p id="psuHeaderText">Portland State University Capstone Website</p>
                 </div>
                 <GoogleUIWrapper />
-                <br></br>
-                <br></br>
-                <StudentDashboard/>
+                <br/>
+                <br/>
+                <br/>
+                {this.props.children}
             </div>
         );
     }

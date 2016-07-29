@@ -5,9 +5,12 @@ import '../imports/api/resumes.js';
 Accounts.onCreateUser((options, user) => {
     user.reviews = [];
     user.resume = {};
-    user.role = '';
-    user.team = {};
-    
+    user.role = 'student';
+    user.team = 1;
+
+    if (options.profile) {
+        user.profile = options.profile;
+    }
     return user
 });
 
