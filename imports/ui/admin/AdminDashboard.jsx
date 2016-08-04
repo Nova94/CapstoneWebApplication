@@ -52,6 +52,11 @@ export default class AdminDashboard extends Component {
     }
 
     render() {
+        if(!Meteor.user() || Meteor.user().role !== "admin") {
+            return (
+                <h2>NIce try hacker</h2>
+            );
+        }
         return (
             <div>
                 <h2>Admin Dashboard</h2>
