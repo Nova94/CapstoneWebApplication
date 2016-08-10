@@ -16,12 +16,12 @@ export default class StudentInfo extends Component {
         this.openModal = this.openModal.bind(this);
     }
 
-    closeModal() { 
-        this.setState({showModal: false}); 
+    closeModal() {
+        this.setState({showModal: false});
     }
     
-    openModal() { 
-        this.setState({showModal: true}); 
+    openModal() {
+        this.setState({showModal: true});
     }
 
     getButton(bsStyle, glyphicon, message, onClick) {
@@ -55,7 +55,20 @@ export default class StudentInfo extends Component {
     
     get360ReviewField(type) {
         return this.props.student[type].completed ?
-            this.getButton('success', 'glyphicon glyphicon-ok', 'This 360 review form is complete') :
+            <div>
+                {this.getButton('success', 'glyphicon glyphicon-ok', 'This 360 review form is complete', this.openModal)}
+                <Modal bsSize="large" show={this.state.showModal} onHide={this.closeModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>360 Review (View Only)</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        Test
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={this.closeModal}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
+            </div> :
             this.get360Form();
     }
     
