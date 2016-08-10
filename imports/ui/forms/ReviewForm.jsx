@@ -30,7 +30,8 @@ AutoForm.addHooks('insertReview', {
             if (error) {
                 console.log("Insert Error:", error);
             } else {
-                console.log("Document inserted:", result);
+                //console.log("Document inserted:", result);
+		Meteor.call('insertReviewToUser', this.insertDoc);
             }
         }
     }
