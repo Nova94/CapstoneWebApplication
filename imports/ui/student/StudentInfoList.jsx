@@ -11,10 +11,14 @@ export default class StudentInfoList extends Component {
         return this.props.students.map((student) => {
             return (
                 <tbody>
-                    <StudentInfo student={student}/>
+                    <StudentInfo student={student} onSubmitClick={this.onSubmitReviewClick}/>
                 </tbody>
             );
         });
+    }
+
+    onSubmitReviewClick() {
+        console.log('clicked submit on review');
     }
 
     getStudentInfoHeader() {

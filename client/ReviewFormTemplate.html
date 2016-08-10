@@ -1,10 +1,11 @@
 <template name="ReviewFormTemplate">
-    <h1>Add Review</h1>
+    <h1>Creating <strong>{{ reviewType }}</strong> review for <strong>{{ student.name }}</strong></h1>
     {{#autoForm collection=Reviews id="insertReview" type="insert"}}
         <fieldset>
-            {{> afQuickField name='reviewer'}}
-            {{> afQuickField name='reviewee'}}
-            {{> afQuickField name='reviewType'}}
+            {{> afQuickField name='reviewer' value=reviewer type="hidden"}}
+            {{> afQuickField name='reviewee' value=student.id type="hidden"}}
+            {{> afQuickField name='revieweeName' value=student.name type="hidden"}}
+            {{> afQuickField name='reviewType' value=reviewType type="hidden"}}
 
             <!-- grading options for "Technical Skill", "Work Ethic", "Communication",
                                      "Initiative", "Team Focus", and "Contribution" -->
@@ -18,7 +19,7 @@
             {{> afQuickField name='traitSuggestion' rows=7}}
             {{> afQuickField name='points'}}
         </fieldset>
-        <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="alert('Your review has been submitted.')">Submit</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" onclick=onSubmitClick>Submit</button>
     {{/autoForm}}
 
 </template>

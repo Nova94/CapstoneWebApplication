@@ -7,9 +7,9 @@ export default class StudentDashboard extends Component {
     }
 
     getStudentData() {
-        // Meteor.call('getTeamById');
         return [
             {
+                id: 34,
                 name: 'Bob',
                 email: 'bob@gmail.com',
                 team: 'winning team',
@@ -23,6 +23,7 @@ export default class StudentDashboard extends Component {
                 },
             },
             {
+                id: 35,
                 name: 'Jessica',
                 email: 'jessica@gmail.com',
                 team: 'winning team',
@@ -36,6 +37,7 @@ export default class StudentDashboard extends Component {
                 },
             },
             {
+                id: 36,
                 name: 'Sam',
                 email: 'sam@gmail.com',
                 team: 'winning team',

@@ -20,8 +20,8 @@ export default class StudentInfo extends Component {
         this.setState({showModal: false}); 
     }
     
-    openModal() { 
-        this.setState({showModal: true}); 
+    openModal() {
+        this.setState({showModal: true});
     }
 
     getButton(bsStyle, glyphicon, message, onClick) {
@@ -34,7 +34,15 @@ export default class StudentInfo extends Component {
         );
     }
 
-    get360Form() {
+    get360Form(type) {
+        var reviewType = '';
+        if(type === "mid360") {
+            reviewType = "Midterm";
+        }
+        else if(type === "final360"){
+            reviewType = "Final";
+        }
+
         return (
             <div>
                 {this.getButton('danger', 'glyphicon glyphicon-remove', 'Please complete this 360 review form', this.openModal)}
@@ -43,7 +51,7 @@ export default class StudentInfo extends Component {
                         <Modal.Title>360 Review</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <ReviewForm/>
+                        <ReviewForm student={this.props.student} reviewer={Meteor.userId()} reviewType={reviewType}/>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.closeModal}>Close</Button>
@@ -56,7 +64,7 @@ export default class StudentInfo extends Component {
     get360ReviewField(type) {
         return this.props.student[type].completed ?
             this.getButton('success', 'glyphicon glyphicon-ok', 'This 360 review form is complete') :
-            this.get360Form();
+            this.get360Form(type);
     }
     
     render() {
