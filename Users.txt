@@ -1,0 +1,432 @@
+db.users.insert([
+  {
+    "_id": "57ac8d28f0fb7fc2e0d5f0ab",
+    "services": {
+      "google": {
+        "email": "Batesbenson@pdx.edu",
+        "name": "Bates Benson"
+      }
+    },
+    "reviews": [
+      {
+        "_id": "57ac8d288700de7b7abe4d06",
+        "reviewer": "57ac8d28f0fb7fc2e0d5f0ab",
+        "reviewee": "57ac8d2861e630d5563a1bf8",
+        "revieweeName": "Wendy Bray",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Excellent",
+          "workEthic": "Average",
+          "communication": "Below Average",
+          "initiative": "Excellent",
+          "teamFocus": "Below Average",
+          "contribution": "Unknown or N/A"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "proident occaecat ipsum voluptate qui",
+        "weakness": "magna sint elit cupidatat eiusmod",
+        "traitSuggestion": "occaecat officia incididunt laborum irure",
+        "points": 16
+      },
+      {
+        "_id": "57ac8d281d6ab55942d0f4a8",
+        "reviewer": "57ac8d28f0fb7fc2e0d5f0ab",
+        "reviewee": "57ac8d2817ebc1bd2f6ceb10",
+        "revieweeName": "Rochelle Erickson",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Unknown or N/A",
+          "workEthic": "Below Average",
+          "communication": "Above Average",
+          "initiative": "Poor",
+          "teamFocus": "Unknown or N/A",
+          "contribution": "Below Average"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "id labore pariatur magna do",
+        "weakness": "elit commodo consectetur do veniam",
+        "traitSuggestion": "irure sint nulla do dolor",
+        "points": 20
+      },
+      {
+        "_id": "57ac8d28f8e5ca826a1238c5",
+        "reviewer": "57ac8d28f0fb7fc2e0d5f0ab",
+        "reviewee": "57ac8d2817ebc1bd2f6ceb10",
+        "revieweeName": "Rochelle Erickson",
+        "reviewType": "Final",
+        "fields": {
+          "technical": "Poor",
+          "workEthic": "Below Average",
+          "communication": "Poor",
+          "initiative": "Above Average",
+          "teamFocus": "Excellent",
+          "contribution": "Above Average"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "ex aute incididunt exercitation duis",
+        "weakness": "eiusmod Lorem elit anim veniam",
+        "traitSuggestion": "proident ullamco non anim ad",
+        "points": 15
+      }
+    ],
+    "resume": {},
+    "role": "student",
+    "team": 2
+  },
+  {
+    "_id": "57ac8d2861e630d5563a1bf8",
+    "services": {
+      "google": {
+        "email": "bwendy@pdx.edu",
+        "name": "Wendy Bray"
+      }
+    },
+    "reviews": [
+      {
+        "_id": "57ac8d28c14211d126ab742d",
+        "reviewer": "57ac8d2861e630d5563a1bf8",
+        "reviewee": "57ac8d28f0fb7fc2e0d5f0ab",
+        "revieweeName": "Bates Benson",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Below Average",
+          "workEthic": "Poor",
+          "communication": "Unknown or N/A",
+          "initiative": "Poor",
+          "teamFocus": "Below Average",
+          "contribution": "Unknown or N/A"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "labore consectetur elit voluptate nostrud",
+        "weakness": "qui cillum occaecat quis labore",
+        "traitSuggestion": "consectetur minim ullamco ex minim",
+        "points": 10
+      },
+      {
+        "_id": "57ac8d28d30a28f1aa28051c",
+        "reviewer": "57ac8d2861e630d5563a1bf8",
+        "reviewee": "57ac8d2876916264f8467b3c",
+        "revieweeName": "Wendy Bray",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Average",
+          "workEthic": "Unknown or N/A",
+          "communication": "Above Average",
+          "initiative": "Above Average",
+          "teamFocus": "Poor",
+          "contribution": "Average"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "aliqua velit excepteur nulla commodo",
+        "weakness": "labore incididunt aliqua adipisicing sunt",
+        "traitSuggestion": "in excepteur ad ut aliqua",
+        "points": 16
+      },
+      {
+        "_id": "57ac8d284c7a3cd8d8a19b07",
+        "reviewer": "57ac8d2861e630d5563a1bf8",
+        "reviewee": "57ac8d28efe705218f06137b",
+        "revieweeName": "Adriana Barry",
+        "reviewType": "Final",
+        "fields": {
+          "technical": "Above Average",
+          "workEthic": "Below Average",
+          "communication": "Below Average",
+          "initiative": "Above Average",
+          "teamFocus": "Poor",
+          "contribution": "Below Average"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "in non deserunt nulla ad",
+        "weakness": "eiusmod Lorem laboris culpa est",
+        "traitSuggestion": "cupidatat occaecat tempor incididunt duis",
+        "points": 20
+      }
+    ],
+    "resume": {},
+    "role": "student",
+    "team": 2
+  },
+  {
+    "_id": "57ac8d2817ebc1bd2f6ceb10",
+    "services": {
+      "google": {
+        "email": "rochelle@pdx.edu",
+        "name": "Rochelle Erickson"
+      }
+    },
+    "reviews": [
+      {
+        "_id": "57ac8d2879fc9d40559512cd",
+        "reviewer": "57ac8d2817ebc1bd2f6ceb10",
+        "reviewee": "57ac8d28f0fb7fc2e0d5f0ab",
+        "revieweeName": "Bates Benson",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Below Average",
+          "workEthic": "Average",
+          "communication": "Excellent",
+          "initiative": "Unknown or N/A",
+          "teamFocus": "Average",
+          "contribution": "Excellent"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "incididunt tempor velit magna est",
+        "weakness": "fugiat cillum ut eu Lorem",
+        "traitSuggestion": "pariatur pariatur dolore aliqua dolore",
+        "points": 16
+      },
+      {
+        "_id": "57ac8d28e96dc09cbfc2721c",
+        "reviewer": "57ac8d2817ebc1bd2f6ceb10",
+        "reviewee": "57ac8d2861e630d5563a1bf8",
+        "revieweeName": "Wendy Bray",
+        "reviewType": "Final",
+        "fields": {
+          "technical": "Below Average",
+          "workEthic": "Average",
+          "communication": "Unknown or N/A",
+          "initiative": "Poor",
+          "teamFocus": "Excellent",
+          "contribution": "Average"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "est veniam excepteur id nostrud",
+        "weakness": "est aliquip ex velit tempor",
+        "traitSuggestion": "officia officia excepteur dolor voluptate",
+        "points": 14
+      },
+      {
+        "_id": "57ac8d28491022ce3f22df97",
+        "reviewer": "57ac8d2817ebc1bd2f6ceb10",
+        "reviewee": "57ac8d2876916264f8467b3c",
+        "revieweeName": "Freda Kramer",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Above Average",
+          "workEthic": "Unknown or N/A",
+          "communication": "Below Average",
+          "initiative": "Average",
+          "teamFocus": "Average",
+          "contribution": "Poor"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "esse culpa nulla excepteur pariatur",
+        "weakness": "in incididunt cupidatat commodo non",
+        "traitSuggestion": "ea ut esse veniam eiusmod",
+        "points": 12
+      }
+    ],
+    "resume": {},
+    "role": "student",
+    "team": 2
+  },
+  {
+    "_id": "57ac8d2876916264f8467b3c",
+    "services": {
+      "google": {
+        "email": "fkramer@pdx.edu",
+        "name": "Freda Kramer"
+      }
+    },
+    "reviews": [
+      {
+        "_id": "57ac8d283c704e565b1c7c2b",
+        "reviewer": "57ac8d2876916264f8467b3c",
+        "reviewee": "57ac8d28f0fb7fc2e0d5f0ab",
+        "revieweeName": "Bates Benson",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Unknown or N/A",
+          "workEthic": "Average",
+          "communication": "Below Average",
+          "initiative": "Excellent",
+          "teamFocus": "Average",
+          "contribution": "Average"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "laborum in et sint dolore",
+        "weakness": "laborum sit occaecat labore ad",
+        "traitSuggestion": "magna eiusmod voluptate exercitation sunt",
+        "points": 11
+      },
+      {
+        "_id": "57ac8d282bda7bdcdcbe760c",
+        "reviewer": "57ac8d2876916264f8467b3c",
+        "reviewee": "57ac8d28f0fb7fc2e0d5f0ab",
+        "revieweeName": "Bates Benson",
+        "reviewType": "Final",
+        "fields": {
+          "technical": "Below Average",
+          "workEthic": "Excellent",
+          "communication": "Average",
+          "initiative": "Above Average",
+          "teamFocus": "Below Average",
+          "contribution": "Average"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "ex tempor voluptate ea enim",
+        "weakness": "nulla in amet pariatur incididunt",
+        "traitSuggestion": "mollit eu eiusmod culpa ipsum",
+        "points": 18
+      },
+      {
+        "_id": "57ac8d28c37c47900ebe73b4",
+        "reviewer": "57ac8d2876916264f8467b3c",
+        "reviewee": "57ac8d2861e630d5563a1bf8",
+        "revieweeName": "Wendy Bray",
+        "reviewType": "Final",
+        "fields": {
+          "technical": "Above Average",
+          "workEthic": "Above Average",
+          "communication": "Excellent",
+          "initiative": "Above Average",
+          "teamFocus": "Below Average",
+          "contribution": "Excellent"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "pariatur velit id elit deserunt",
+        "weakness": "est quis magna adipisicing sit",
+        "traitSuggestion": "exercitation sit consectetur aliqua consectetur",
+        "points": 12
+      }
+    ],
+    "resume": {},
+    "role": "student",
+    "team": 2
+  },
+  {
+    "_id": "57ac8d28efe705218f06137b",
+    "services": {
+      "google": {
+        "email": "abarry@pdx.edu",
+        "name": "Adriana Barry"
+      }
+    },
+    "reviews": [
+      {
+        "_id": "57ac8d28cc36217f2523cc4a",
+        "reviewer": "57ac8d28efe705218f06137b",
+        "reviewee": "57ac8d2876916264f8467b3c",
+        "revieweeName": "Freda Kramer",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Average",
+          "workEthic": "Average",
+          "communication": "Poor",
+          "initiative": "Unknown or N/A",
+          "teamFocus": "Above Average",
+          "contribution": "Excellent"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "sint dolor fugiat tempor velit",
+        "weakness": "ullamco elit sunt sit ad",
+        "traitSuggestion": "sit adipisicing amet consequat veniam",
+        "points": 18
+      },
+      {
+        "_id": "57ac8d28602e7e2aab6a7044",
+        "reviewer": "57ac8d28efe705218f06137b",
+        "reviewee": "57ac8d2861e630d5563a1bf8",
+        "revieweeName": "Wendy Bray",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Unknown or N/A",
+          "workEthic": "Unknown or N/A",
+          "communication": "Average",
+          "initiative": "Excellent",
+          "teamFocus": "Above Average",
+          "contribution": "Average"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "fugiat velit enim in commodo",
+        "weakness": "officia est sunt irure commodo",
+        "traitSuggestion": "velit anim voluptate irure aliqua",
+        "points": 17
+      },
+      {
+        "_id": "57ac8d28b00146d30d6cae06",
+        "reviewer": "57ac8d28efe705218f06137b",
+        "reviewee": "57ac8d28f0fb7fc2e0d5f0ab",
+        "revieweeName": "Bates Benson",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Poor",
+          "workEthic": "Excellent",
+          "communication": "Above Average",
+          "initiative": "Unknown or N/A",
+          "teamFocus": "Poor",
+          "contribution": "Excellent"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "esse cupidatat tempor elit labore",
+        "weakness": "officia cupidatat mollit quis et",
+        "traitSuggestion": "eiusmod non laboris veniam velit",
+        "points": 12
+      }
+    ],
+    "resume": {},
+    "role": "student",
+    "team": 2
+  }
+])

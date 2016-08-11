@@ -1,0 +1,94 @@
+//Replace <METEOR_USER_ID> with your user id.
+
+db.users.update(
+    {_id: <METEOR_USER_ID>},
+    {$push: {"reviews": [
+      {
+        "_id": "57ac8d288700de7b7abe4d06",
+        "reviewer": <METEOR_USER_ID>,
+        "reviewee": "57ac8d2861e630d5563a1bf8",
+        "revieweeName": "Wendy Bray",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Excellent",
+          "workEthic": "Average",
+          "communication": "Below Average",
+          "initiative": "Excellent",
+          "teamFocus": "Below Average",
+          "contribution": "Unknown or N/A"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "proident occaecat ipsum voluptate qui",
+        "weakness": "magna sint elit cupidatat eiusmod",
+        "traitSuggestion": "occaecat officia incididunt laborum irure",
+        "points": 16
+      },
+      {
+        "_id": "57ac8d281d6ab55942d0f4a8",
+        "reviewer": <METEOR_USER_ID>,
+        "reviewee": "57ac8d2817ebc1bd2f6ceb10",
+        "revieweeName": "Rochelle Erickson",
+        "reviewType": "Midterm",
+        "fields": {
+          "technical": "Unknown or N/A",
+          "workEthic": "Below Average",
+          "communication": "Above Average",
+          "initiative": "Poor",
+          "teamFocus": "Unknown or N/A",
+          "contribution": "Below Average"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "id labore pariatur magna do",
+        "weakness": "elit commodo consectetur do veniam",
+        "traitSuggestion": "irure sint nulla do dolor",
+        "points": 20
+      },
+      {
+        "_id": "57ac8d28f8e5ca826a1238c5",
+        "reviewer": <METEOR_USER_ID>,
+        "reviewee": "57ac8d2817ebc1bd2f6ceb10",
+        "revieweeName": "Rochelle Erickson",
+        "reviewType": "Final",
+        "fields": {
+          "technical": "Poor",
+          "workEthic": "Below Average",
+          "communication": "Poor",
+          "initiative": "Above Average",
+          "teamFocus": "Excellent",
+          "contribution": "Above Average"
+        },
+        "teamLead": {
+          "leadership": "Unknown or N/A",
+          "organization": "Unknown or N/A",
+          "delegation": "Unknown or N/A"
+        },
+        "strengths": "ex aute incididunt exercitation duis",
+        "weakness": "eiusmod Lorem elit anim veniam",
+        "traitSuggestion": "proident ullamco non anim ad",
+        "points": 15
+      },
+       {
+         "_id": "57ac8d28b00146d30d6cae06",
+         "reviewer": <METEOR_USER_ID>,
+         "reviewee": "57ac8d28f0fb7fc2e0d5f0ab",
+         "revieweeName": "Bates Benson",
+         "reviewType": "Midterm",
+         "fields": {
+           "technical": "Poor",
+           "workEthic": "Excellent",
+           "communication": "Above Average",
+           "initiative": "Unknown or N/A",
+           "teamFocus": "Poor",
+           "contribution": "Excellent"
+         },
+     }
+    ]}}
+)

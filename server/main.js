@@ -6,7 +6,7 @@ Accounts.onCreateUser((options, user) => {
     user.reviews = [];
     user.resume = {};
     user.role = 'student';
-    user.team = 1;
+    user.team = 2;
 
     if (options.profile) {
         user.profile = options.profile;
