@@ -1,0 +1,12 @@
+1. Run `meteor`. Wait for it to start the server
+2. Run `meteor mongo` to get the mongo console up
+3. Make sure your users collection is cleared by typing `db.users.drop()` in the mongo console
+4. Insert a few fake users into the database by typing `load('Users.txt')` in the mongo console
+5. Go to localhost:3000 and sign in with your @pdx email
+6. Your account should now be created. Refresh your page and open up the javascript console (right-click -> inspect source -> console)
+7. In the javascript console, type Meteor.userId()
+8. Copy the result into your clipboard
+9. Open up the file PushUserReviews.txt and replace every occurence of <METEOR_USER_ID> with the id you just copied, surrounded by quotes
+10. Go back to your mongo console and type `load('PushUserReviews.txt')`
+11. You should now have some fake users in mongo and your user object should have some reviews attached to it. 
+12. To verify that all of the users were added, type `db.users.find()` into the mongo console. Look for your user document entry to double check that the reviews were correctly pushed to your reviews array 
