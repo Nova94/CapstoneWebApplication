@@ -72,12 +72,7 @@ export default class StudentInfo extends Component {
                         <Modal.Title>360 Review (View Only)</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        if (type === 'mid360') {
-                            <viewReview/> //show specific Mid 360 Review here when things are connected up with the backend
-                        }
-                        else {
-                            <ViewReview/> //show specific Final 360 Review here when things are connected up with the backend
-                        }
+                        <ViewReview/>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.closeReviewModal}>Close</Button>
