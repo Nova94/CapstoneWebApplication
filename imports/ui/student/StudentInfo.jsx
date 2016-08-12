@@ -10,18 +10,28 @@ export default class StudentInfo extends Component {
         super(props);
 
         this.state = {
-            showModal: false
+            showFormModal: false,
+            showReviewModal: false
         };
-        this.closeModal = this.closeModal.bind(this);
-        this.openModal = this.openModal.bind(this);
+        this.closeFormModal = this.closeFormModal.bind(this);
+        this.openFormModal = this.openFormModal.bind(this);
+
+        this.closeReviewModal = this.closeReviewModal.bind(this);
+        this.openReviewModal = this.openReviewModal.bind(this);
     }
 
-    closeModal() {
-        this.setState({showModal: false});
+    closeFormModal() {
+        this.setState({showFormModal: false});
     }
-    
-    openModal() {
-        this.setState({showModal: true});
+    openFormModal() {
+        this.setState({showFormModal: true});
+    }
+
+    closeReviewModal() {
+        this.setState({showReviewModal: false});
+    }
+    openReviewModal() {
+        this.setState({showReviewModal: true});
     }
 
     getButton(bsStyle, glyphicon, message, onClick) {
@@ -37,8 +47,8 @@ export default class StudentInfo extends Component {
     get360Form() {
         return (
             <div>
-                {this.getButton('danger', 'glyphicon glyphicon-remove', 'Please complete this 360 review form', this.openModal)}
-                <Modal bsSize ="large" show={this.state.showModal} onHide={this.closeModal}>
+                {this.getButton('danger', 'glyphicon glyphicon-remove', 'Please complete this 360 review form', this.openFormModal)}
+                <Modal bsSize ="large" show={this.state.showFormModal} onHide={this.closeFormModal}>
                     <Modal.Header closeButton>
                         <Modal.Title>360 Review</Modal.Title>
                     </Modal.Header>
@@ -46,7 +56,7 @@ export default class StudentInfo extends Component {
                         <ReviewForm/>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={this.closeModal}>Close</Button>
+                        <Button onClick={this.closeFormModal}>Close</Button>
                     </Modal.Footer>
                 </Modal>
             </div>
@@ -56,16 +66,21 @@ export default class StudentInfo extends Component {
     get360ReviewField(type) {
         return this.props.student[type].completed ?
             <div>
-                {this.getButton('success', 'glyphicon glyphicon-ok', 'This 360 review form is complete', this.openModal)}
-                <Modal bsSize="large" show={this.state.showModal} onHide={this.closeModal}>
+                {this.getButton('success', 'glyphicon glyphicon-ok', 'This 360 review form is complete', this.openReviewModal)}
+                <Modal bsSize="large" show={this.state.showReviewModal} onHide={this.closeReviewModal}>
                     <Modal.Header closeButton>
                         <Modal.Title>360 Review (View Only)</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <ViewReview/>
+                        if (type === 'mid360') {
+                            <viewReview/> //show specific Mid 360 Review here when things are connected up with the backend
+                        }
+                        else {
+                            <ViewReview/> //show specific Final 360 Review here when things are connected up with the backend
+                        }
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={this.closeModal}>Close</Button>
+                        <Button onClick={this.closeReviewModal}>Close</Button>
                     </Modal.Footer>
                 </Modal>
             </div> :
