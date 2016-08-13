@@ -69,7 +69,7 @@ export default class StudentInfo extends Component {
                 {this.getButton('success', 'glyphicon glyphicon-ok', 'This 360 review form is complete', this.openReviewModal)}
                 <Modal bsSize="large" show={this.state.showReviewModal} onHide={this.closeReviewModal}>
                     <Modal.Header closeButton>
-                        <Modal.Title>360 Review (View Only)</Modal.Title>
+                        <Modal.Title>Viewing</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <ViewReview/>
