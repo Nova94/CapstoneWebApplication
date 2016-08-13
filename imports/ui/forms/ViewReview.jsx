@@ -33,56 +33,56 @@ export default class StudentInfoList extends Component {
 
         return (
             <Panel defaultExpanded header="Midterm/Final 360 Review" bsStyle="success">
-                <Table fill striped condensed>
+                <Table fill striped condensed hover>
                     <tbody>
-                    <tr>
-                        <td><h4>Reviewer:</h4></td>
-                        <td>{testReview.reviewer}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Reviewee:</h4></td>
-                        <td>{testReview.reviewee}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Review Type:</h4></td>
-                        <td>{testReview.reviewType}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Technical:</h4></td>
-                        <td>{testReview.fields.technical}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Work Ethic:</h4></td>
-                        <td>{testReview.fields.workEthic}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Communication:</h4></td>
-                        <td>{testReview.fields.communication}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Team Focus:</h4></td>
-                        <td>{testReview.fields.teamFocus}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Contribution:</h4></td>
-                        <td>{testReview.fields.contribution}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Strengths:</h4></td>
-                        <td>{testReview.strengths}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Weakness:</h4></td>
-                        <td>{testReview.weakness}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Trait Suggestion:</h4></td>
-                        <td>{testReview.traitSuggestion}</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Points Allocation:</h4></td>
-                        <td>{testReview.points}</td>
-                    </tr>
+                        <tr>
+                            <th>Reviewer:</th>
+                            <td>{testReview.reviewer}</td>
+                        </tr>
+                        <tr>
+                            <th>Reviewee:</th>
+                            <td>{testReview.reviewee}</td>
+                        </tr>
+                        <tr>
+                            <th>Review Type:</th>
+                            <td>{testReview.reviewType}</td>
+                        </tr>
+                        <tr>
+                            <th>Technical:</th>
+                            <td>{testReview.fields.technical}</td>
+                        </tr>
+                        <tr>
+                            <th>Work Ethic:</th>
+                            <td>{testReview.fields.workEthic}</td>
+                        </tr>
+                        <tr>
+                            <th>Communication:</th>
+                            <td>{testReview.fields.communication}</td>
+                        </tr>
+                        <tr>
+                            <th>Team Focus:</th>
+                            <td>{testReview.fields.teamFocus}</td>
+                        </tr>
+                        <tr>
+                            <th>Contribution:</th>
+                            <td>{testReview.fields.contribution}</td>
+                        </tr>
+                        <tr>
+                            <th>Strengths:</th>
+                            <td>{testReview.strengths}</td>
+                        </tr>
+                        <tr>
+                            <th>Weakness:</th>
+                            <td>{testReview.weakness}</td>
+                        </tr>
+                        <tr>
+                            <th>Trait Suggestion:</th>
+                            <td>{testReview.traitSuggestion}</td>
+                        </tr>
+                        <tr>
+                            <th>Points Allocation:</th>
+                            <td>{testReview.points}</td>
+                        </tr>
                     </tbody>
                 </Table>
             </Panel>
