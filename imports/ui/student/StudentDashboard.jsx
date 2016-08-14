@@ -25,13 +25,19 @@ export default class StudentDashboard extends Component {
     }
 
     setTeamData() {
-        console.log(this.props.user.team);
         api.users.getUsersForTeam(this.props.user.team).then(
             (data) => {
                 this.setState({teamData: data});
-                console.log(data);
             }
         );
+    }
+    getCurrentUserDocument() {
+        // look through the list of users on this team and get the one that is the current logged in user
+        return _.find(this.state.teamData, (user) => {
+            if(user._id === this.props.user._id) {
+                return user;
+            }
+        });
     }
 
     getStudentDashboard() {
@@ -42,7 +48,7 @@ export default class StudentDashboard extends Component {
         return (
             <div>
                 <h2>Student Dashboard</h2>
-                <StudentInfoList user={this.props.user} students={this.state.teamData}/>
+                <StudentInfoList user={this.getCurrentUserDocument()} students={this.state.teamData}/>
             </div>
         );
     }
