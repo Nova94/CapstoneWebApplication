@@ -127,7 +127,7 @@ Router.route('/team/:teamId', {where: 'server'})
     .get(function(){
         var response;
         if(this !== undefined){
-            var data = Users.find({teamId: parseInt(this.params.teamId)}).fetch();
+            var data = Meteor.users.find({team: parseInt(this.params.teamId)}).fetch();
             if(data.length > 0){
                 response = data
             }else{
