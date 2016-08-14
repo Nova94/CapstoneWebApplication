@@ -11,7 +11,7 @@ export default class StudentInfoList extends Component {
         return this.props.students.map((student) => {
             return (
                 <tbody>
-                    <StudentInfo student={student}/>
+                    <StudentInfo user={this.props.user} student={student}/>
                 </tbody>
             );
         });
@@ -31,6 +31,18 @@ export default class StudentInfoList extends Component {
     }
 
     render() {
+        if(!this.props.students) {
+            const style = {
+                width: '50%',
+                margin: '0 auto'
+            }
+            return (
+                <div style={style}>
+                    <h2>No Team Data</h2>
+                </div>
+            );
+        }
+
         return (
             <Panel defaultExpanded header="Reviews List" bsStyle="info">
                 <Table fill striped bordered condensed>
