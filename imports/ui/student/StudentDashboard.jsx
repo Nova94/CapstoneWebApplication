@@ -18,12 +18,6 @@ export default class StudentDashboard extends Component {
         ];
     }
 
-    componentDidMount() {
-        if(this.props.user) {
-
-        }
-    }
-
     setTeamData() {
         api.users.getUsersForTeam(this.props.user.team).then(
             (data) => {
@@ -56,7 +50,8 @@ export default class StudentDashboard extends Component {
     render() {
         if(this.props.loggingIn) {
             return (<h4>Loggin In...</h4>);
-        } else if (!this.props.logginIn && this.props.user){
+        } else if (!this.props.loggingIn && this.props.user){
+            console.log(this.props.user.role);
             return (
                 <div>
                     {this.getStudentDashboard()}

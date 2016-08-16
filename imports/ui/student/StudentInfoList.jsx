@@ -9,6 +9,9 @@ export default class StudentInfoList extends Component {
 
     renderStudentInfoList() {
         return this.props.students.map((student) => {
+            if(student._id === this.props.user._id) {
+                return null;
+            }
             return (
                 <tbody>
                     <StudentInfo user={this.props.user} student={student}/>
@@ -35,7 +38,7 @@ export default class StudentInfoList extends Component {
             const style = {
                 width: '50%',
                 margin: '0 auto'
-            }
+            };
             return (
                 <div style={style}>
                     <h2>No Team Data</h2>
