@@ -13,14 +13,18 @@ Reviews.attachSchema(new SimpleSchema({
         type: String,
         label: "Reviewee"
     },
+    "revieweeName": {
+        type: String,
+        label: "Reviewee Name"
+    },
     "reviewType": {
         type: String,
         label: "Type of Review",
-        allowedValues: ["midterm", "final"],
+        allowedValues: ["Midterm", "Final"],
         autoform: {
             options: [
-                {label: "Midterm", value: "midterm"},
-                {label: "Final", value: "final"}
+                {label: "Midterm", value: "Midterm"},
+                {label: "Final", value: "Final"}
             ]
         }
     },
@@ -37,7 +41,8 @@ Reviews.attachSchema(new SimpleSchema({
                 'Above Average': "Above Average",
                 Excellent: "Excellent",
                 'Unknown or N/A': "Unknown or N/A"
-            }
+            },
+            value: "Unknown or N/A"
         }
     },
     "fields.workEthic": {
@@ -53,7 +58,8 @@ Reviews.attachSchema(new SimpleSchema({
                 'Above Average': "Above Average",
                 Excellent: "Excellent",
                 'Unknown or N/A': "Unknown or N/A"
-            }
+            },
+            value: "Unknown or N/A"
         }
     },
     "fields.communication": {
@@ -69,7 +75,8 @@ Reviews.attachSchema(new SimpleSchema({
                 'Above Average': "Above Average",
                 Excellent: "Excellent",
                 'Unknown or N/A': "Unknown or N/A"
-            }
+            },
+            value: "Unknown or N/A"
         }
     },
     "fields.initiative": {
@@ -85,7 +92,8 @@ Reviews.attachSchema(new SimpleSchema({
                 'Above Average': "Above Average",
                 Excellent: "Excellent",
                 'Unknown or N/A': "Unknown or N/A"
-            }
+            },
+            value: "Unknown or N/A"
         }
     },
     "fields.teamFocus": {
@@ -101,7 +109,8 @@ Reviews.attachSchema(new SimpleSchema({
                 'Above Average': "Above Average",
                 Excellent: "Excellent",
                 'Unknown or N/A': "Unknown or N/A"
-            }
+            },
+            value: "Unknown or N/A"
         }
     },
     "fields.contribution": {
@@ -117,7 +126,8 @@ Reviews.attachSchema(new SimpleSchema({
                 'Above Average': "Above Average",
                 Excellent: "Excellent",
                 'Unknown or N/A': "Unknown or N/A"
-            }
+            },
+            value: "Unknown or N/A"
         }
     },
     "teamLead.leadership": {
@@ -134,7 +144,8 @@ Reviews.attachSchema(new SimpleSchema({
                 'Above Average': "Above Average",
                 Excellent: "Excellent",
                 'Unknown or N/A': "Unknown or N/A"
-            }
+            },
+            value: "Unknown or N/A"
         }
     },
     "teamLead.organization": {
@@ -151,7 +162,8 @@ Reviews.attachSchema(new SimpleSchema({
                 'Above Average': "Above Average",
                 Excellent: "Excellent",
                 'Unknown or N/A': "Unknown or N/A"
-            }
+            },
+            value: "Unknown or N/A"
         }
     },
     "teamLead.delegation": {
@@ -168,7 +180,8 @@ Reviews.attachSchema(new SimpleSchema({
                 'Above Average': "Above Average",
                 Excellent: "Excellent",
                 'Unknown or N/A': "Unknown or N/A"
-            }
+            },
+            value: "Unknown or N/A"
         }
     },
     "points": {
