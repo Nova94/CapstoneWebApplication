@@ -20,11 +20,11 @@ Reviews.attachSchema(new SimpleSchema({
     "reviewType": {
         type: String,
         label: "Type of Review",
-        allowedValues: ["Midterm", "Final"],
+        allowedValues: ["midterm", "final"],
         autoform: {
             options: [
-                {label: "Midterm", value: "Midterm"},
-                {label: "Final", value: "Final"}
+                {label: "Midterm", value: "midterm"},
+                {label: "Final", value: "final"}
             ]
         }
     },

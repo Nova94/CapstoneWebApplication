@@ -42,7 +42,7 @@ export default class StudentDashboard extends Component {
         return (
             <div>
                 <h2>Student Dashboard</h2>
-                <StudentInfoList user={this.getCurrentUserDocument()} students={this.state.teamData}/>
+                <StudentInfoList user={this.getCurrentUserDocument()} students={this.state.teamData} />
             </div>
         );
     }

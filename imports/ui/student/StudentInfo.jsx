@@ -18,11 +18,11 @@ export default class StudentInfo extends Component {
 
         if(type === 'midterm') {
              review = _.find(this.props.user.reviews, (review) => {
-                return review.reviewee === this.props.student._id && review.reviewType === 'Midterm';
+                return review.reviewee === this.props.student._id && review.reviewType === 'midterm';
             });
         } else if (type === 'final') {
             review = _.find(this.props.user.reviews, (review) => {
-                return review.reviewee === this.props.student._id && review.reviewType === 'Final';
+                return review.reviewee === this.props.student._id && review.reviewType === 'final';
             });
         }
         return review;
@@ -31,7 +31,10 @@ export default class StudentInfo extends Component {
     get360ReviewField(type) {
         const review = this.getReviewForUser(type);
         if (!review) {
-            return <ModalButtonIncomplete user={this.props.user} reviewType={type} student={this.props.student}/>
+            return <ModalButtonIncomplete
+                user={this.props.user}
+                reviewType={type}
+                student={this.props.student} />
         } else {
             return <ModalButtonComplete review={review}/>
         }

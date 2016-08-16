@@ -14,7 +14,7 @@ export default class StudentInfoList extends Component {
             }
             return (
                 <tbody>
-                    <StudentInfo user={this.props.user} student={student}/>
+                    <StudentInfo user={this.props.user} student={student} />
                 </tbody>
             );
         });
