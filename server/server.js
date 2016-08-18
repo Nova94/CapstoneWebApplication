@@ -174,7 +174,7 @@ Router.route('/:_id/setRole/:role', {where: 'server'})
             if(adminCheck && adminCheck.role == "admin") {
                 data = Meteor.users.update({_id: this.params._id}, {$set: {"role": this.params.role}});
             }
-            //console.log(data);
+            
             if(data === 1){
                 response = {
                     "message": "Role set."
@@ -197,10 +197,10 @@ Router.route('/:_id/setTeam/:team', {where: 'server'})
         if(this !== undefined){
             var data;
             var adminCheck = Meteor.users.findOne(Meteor.userId);
-            if(adminCheck && adminCheck.role == "admin") {
+            if(adminCheck && adminCheck.role == "admin" && !isNaN(this.params.team)) {
                 data = Meteor.users.update({_id: this.params._id}, {$set: {"team": parseInt(this.params.team)}});
             }
-            //console.log(data);
+
             if(data === 1){
                 response = {
                     "message": "Team set."
