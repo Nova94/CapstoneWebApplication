@@ -141,6 +141,81 @@ Router.route('/team/:teamId', {where: 'server'})
         this.response.end(JSON.stringify(response));
     });
 
+// get all users data if the user is admin
+Router.route('/admin/getAllUsers', {where: 'server'})
+    .get(function(){
+        var response;
+        if(this !== undefined){
+            var data;
+            var adminCheck = Meteor.users.findOne(Meteor.userId);
+            if(adminCheck && adminCheck.role == "admin") {
+                data = Meteor.users.find().fetch();
+            }
+            if(data && data.length > 0){
+                response = data
+            }else{
+                response = {
+                    "error": true,
+                    "message": "Users not found."
+                }
+            }
+        }
+        this.response.setHeader('Content-Type',"application/json");
+        this.response.end(JSON.stringify(response));
+    });
+
+// update role for a specified id
+Router.route('/:_id/setRole/:role', {where: 'server'})
+    .get(function(){
+        var response;
+        if(this !== undefined){
+            var data;
+            var adminCheck = Meteor.users.findOne(Meteor.userId);
+            if(adminCheck && adminCheck.role == "admin") {
+                data = Meteor.users.update({_id: this.params._id}, {$set: {"role": this.params.role}});
+            }
+            //console.log(data);
+            if(data === 1){
+                response = {
+                    "message": "Role set."
+                }
+            }else{
+                response = {
+                    "error": true,
+                    "message": "Role cannot be set."
+                }
+            }
+        }
+        this.response.setHeader('Content-Type',"application/json");
+        this.response.end(JSON.stringify(response));
+    });
+
+// update team for a specified id
+Router.route('/:_id/setTeam/:team', {where: 'server'})
+    .get(function(){
+        var response;
+        if(this !== undefined){
+            var data;
+            var adminCheck = Meteor.users.findOne(Meteor.userId);
+            if(adminCheck && adminCheck.role == "admin") {
+                data = Meteor.users.update({_id: this.params._id}, {$set: {"team": parseInt(this.params.team)}});
+            }
+            //console.log(data);
+            if(data === 1){
+                response = {
+                    "message": "Team set."
+                }
+            }else{
+                response = {
+                    "error": true,
+                    "message": "Team cannot be set."
+                }
+            }
+        }
+        this.response.setHeader('Content-Type',"application/json");
+        this.response.end(JSON.stringify(response));
+    });
+
 
 // publishing some user fields
 Meteor.publish(null, function () {
