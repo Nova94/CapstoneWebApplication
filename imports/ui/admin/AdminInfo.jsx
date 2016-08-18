@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import {Button, Modal, OverlayTrigger, Tooltip, DropdownButton, MenuItem} from 'react-bootstrap';
 
 import AdminModalButtonComplete from '../AdminModalButtonComplete';
-import ModalButtonIncomplete from '../ModalButtonIncomplete';
+import AdminModalButtonIncomplete from '../AdminModalButtonIncomplete';
 
 import ReviewForm from '../forms/ReviewForm';
 import ResumeForm from '../forms/ResumeForm';
@@ -36,7 +36,7 @@ export default class AdminInfo extends Component {
     get360ReviewField(type) {
         const reviews = this.getReviewForUser(type);
         if (reviews.length == 0) {
-            return <ModalButtonIncomplete user={this.props.user} reviewType={type} student={this.props.student}/>
+            return <AdminModalButtonIncomplete user={this.props.user} reviewType={type} student={this.props.student}/>
         } else {
             return <AdminModalButtonComplete review={reviews}/>
         }
