@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {Button, Modal, OverlayTrigger, Tooltip, DropdownButton, MenuItem} from 'react-bootstrap';
 
-import ModalButtonComplete from '../ModalButtonComplete';
+import AdminModalButtonComplete from '../AdminModalButtonComplete';
 import ModalButtonIncomplete from '../ModalButtonIncomplete';
 
 import ReviewForm from '../forms/ReviewForm';
@@ -18,11 +18,11 @@ export default class AdminInfo extends Component {
         let review = null;
 
         if(type === 'midterm') {
-             review = _.filter(this.props.reviews, (review) => {
+             review = _.find(this.props.reviews, (review) => {
                 return review.reviewee === this.props.student._id && review.reviewType === 'Midterm';
             });
         } else if (type === 'final') {
-            review = _.filter(this.props.reviews, (review) => {
+            review = _.find(this.props.reviews, (review) => {
                 return review.reviewee === this.props.student._id && review.reviewType === 'Final';
             });
         }
@@ -37,7 +37,7 @@ export default class AdminInfo extends Component {
         if (!review) {
             return <ModalButtonIncomplete user={this.props.user} reviewType={type} student={this.props.student}/>
         } else {
-            return <ModalButtonComplete review={review}/>
+            return <AdminModalButtonComplete review={review}/>
         }
     }
     
