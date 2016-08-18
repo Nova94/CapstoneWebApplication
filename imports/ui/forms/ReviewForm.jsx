@@ -6,9 +6,10 @@ import { Template } from 'meteor/templating';
 export default class ReviewForm extends Component {
 
     componentDidMount() {
+        var reviewData = this.props;
         this.view = Blaze.renderWithData(
             Template.ReviewFormTemplate,
-            this.props,
+            reviewData,
             ReactDOM.findDOMNode(this.refs.container)
         );
     }
@@ -18,7 +19,19 @@ export default class ReviewForm extends Component {
     }
 
     render() {
-        // Just render a placeholder container that will be filled in
         return <span ref="container" />;
     }
 }
+
+AutoForm.addHooks('insertReview', {
+    after: {
+        insert: function (error, result) {
+            if (error) {
+                console.log("Insert Error:", error);
+            } else {
+                //console.log("Document inserted:", result);
+		        Meteor.call('insertReviewToUser', this.insertDoc);
+            }
+        }
+    }
+});

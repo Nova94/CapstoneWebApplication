@@ -23,7 +23,10 @@ export default class ModalButtonIncomplete extends Component {
                     <Modal.Title>Filling out Review for {this.props.student.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <ReviewForm user={this.props.user} reviewType={this.props.reviewType} student={ this.props.student }/>
+                    <ReviewForm
+                        user={this.props.user}
+                        reviewType={this.props.reviewType}
+                        student={ this.props.student }/>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={ this.closeModal.bind(this) }>Close</Button>

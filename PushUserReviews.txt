@@ -5,7 +5,7 @@ db.users.update(
         "reviewer": <METEOR_USER_ID>,
         "reviewee": "57ac8d2861e630d5563a1bf8",
         "revieweeName": "Wendy Bray",
-        "reviewType": "Midterm",
+        "reviewType": "midterm",
         "fields": {
           "technical": "Excellent",
           "workEthic": "Average",
@@ -33,7 +33,7 @@ db.users.update(
         "reviewer": <METEOR_USER_ID>,
         "reviewee": "57ac8d2817ebc1bd2f6ceb10",
         "revieweeName": "Rochelle Erickson",
-        "reviewType": "Midterm",
+        "reviewType": "midterm",
         "fields": {
           "technical": "Unknown or N/A",
           "workEthic": "Below Average",
@@ -61,7 +61,7 @@ db.users.update(
         "reviewer": <METEOR_USER_ID>,
         "reviewee": "57ac8d2817ebc1bd2f6ceb10",
         "revieweeName": "Rochelle Erickson",
-        "reviewType": "Final",
+        "reviewType": "final",
         "fields": {
           "technical": "Poor",
           "workEthic": "Below Average",
@@ -88,7 +88,7 @@ db.users.update(
          "reviewer": <METEOR_USER_ID>,
          "reviewee": "57ac8d28f0fb7fc2e0d5f0ab",
          "revieweeName": "Bates Benson",
-         "reviewType": "Midterm",
+         "reviewType": "midterm",
          "fields": {
            "technical": "Poor",
            "workEthic": "Excellent",
