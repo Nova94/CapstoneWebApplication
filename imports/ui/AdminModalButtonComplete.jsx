@@ -15,11 +15,25 @@ export default class ModalButtonComplete extends Component {
 
     closeModal () { this.setState({ showModal: false }); }
 
+    getTotalPointAllocation(reviewsList) {
+        var sum = 0;
+
+        for(var i = 0; i < reviewsList.length; i++) {
+            if(reviewsList[i].points) {
+                sum = sum + reviewsList[i].points;
+            }
+        }
+        return sum;
+    }
+
     getModalWithViewReview () {
         return (
             <Modal bsSize="large" show={this.state.showModal} onHide={ this.closeModal.bind(this) }>
                 <Modal.Header closeButton>
-                    <Modal.Title>Viewing Submitted Reviews for {this.props.review[0].revieweeName}</Modal.Title>
+                    <Modal.Title>
+                        Viewing Submitted Review(s) for <strong><u>{this.props.review[0].revieweeName}</u></strong><br/><br/>
+                        Total Point Allocation: {this.getTotalPointAllocation(this.props.review)}
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {console.log(this.props.review)}
