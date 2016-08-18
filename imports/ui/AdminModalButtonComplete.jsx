@@ -37,7 +37,7 @@ export default class ModalButtonComplete extends Component {
 
     render() {
         return (
-            <OverlayTrigger delayShow="400" placement="left" overlay={<Tooltip>{"View submitted review"}</Tooltip>}>
+            <OverlayTrigger delayShow="400" placement="left" overlay={<Tooltip>{"View submitted reviews"}</Tooltip>}>
                 <Button bsStyle='success' bsSize="xsmall" onClick={ this.openModal.bind(this) }>
                     <span className='glyphicon glyphicon-ok'/>
                     {this.getModalWithViewReview()}
