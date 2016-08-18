@@ -37,7 +37,7 @@ export default class ModalButtonComplete extends Component {
                 </Modal.Header>
                 <Modal.Body>
                     {this.props.review.map((review) => {
-                            return (<ViewReview review={review}/>)
+                        return (<ViewReview review={review}/>)
                     })}
                 </Modal.Body>
                 <Modal.Footer>
