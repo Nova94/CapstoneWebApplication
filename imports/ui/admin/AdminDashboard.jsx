@@ -4,7 +4,6 @@ import { Meteor } from 'meteor/meteor'
 import { createContainer } from 'meteor/react-meteor-data';
 import api from '../../../client/api.js';
 
-
 export default class AdminDashboard extends Component {
     constructor(props) {
         super(props);
@@ -53,6 +52,22 @@ export default class AdminDashboard extends Component {
         });
     }
 
+    getAllReviewsFromStudents(students) {
+        if(!students) {
+            return null;
+        }
+
+        var allReviews = [];
+
+        for(var i = 0; i < students.length; i++) {
+            if(students[i].reviews) {
+                allReviews = allReviews.concat(students[i].reviews);
+            }
+        }
+
+        return allReviews;
+    }
+
     getAdminDashboard() {
         if(!this.state.teamData) {
             this.setTeamData();
@@ -61,10 +76,13 @@ export default class AdminDashboard extends Component {
         return (
             <div>
                 <h2>Admin Dashboard</h2>
-                <AdminInfoList user={this.getCurrentUserDocument()}
-                               students={this.state.teamData}
-                               roles={this.getRoles()}
-                               teams={this.getTeams()}/>
+                <AdminInfoList
+                    user={this.getCurrentUserDocument()}
+                    students={this.state.teamData}
+                    roles={this.getRoles()}
+                    reviews={this.getAllReviewsFromStudents(this.state.teamData)}
+                    teams={this.getTeams()}
+                />
             </div>
         );
     }

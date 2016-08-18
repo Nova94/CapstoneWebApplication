@@ -18,14 +18,15 @@ export default class AdminInfo extends Component {
         let review = null;
 
         if(type === 'midterm') {
-             review = _.find(this.props.user.reviews, (review) => {
+             review = _.filter(this.props.reviews, (review) => {
                 return review.reviewee === this.props.student._id && review.reviewType === 'Midterm';
             });
         } else if (type === 'final') {
-            review = _.find(this.props.user.reviews, (review) => {
+            review = _.filter(this.props.reviews, (review) => {
                 return review.reviewee === this.props.student._id && review.reviewType === 'Final';
             });
         }
+
         return review;
     }
 
@@ -39,19 +40,7 @@ export default class AdminInfo extends Component {
             return <ModalButtonComplete review={review}/>
         }
     }
-
-	// getResumeField() {
-	// 	if(this.props.student.resume.completed) {
-	// 		return (
-	// 			// this.getSubmittedButtonResume()
-	// 		);
-	// 	} else {
-	// 		return (
-	// 			// this.getResumeForm()
-	// 		);
-	// 	}
-	// }
-
+    
     getTeamDropdown() {
         return (
             <DropdownButton title={this.props.student.team}>
