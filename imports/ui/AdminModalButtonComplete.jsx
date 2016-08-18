@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {Button, Modal, OverlayTrigger, Tooltip} from 'react-bootstrap';
 import ViewReview from './forms/ViewReview';
-import _ from 'lodash';
 
 export default class ModalButtonComplete extends Component {
     constructor(props) {
@@ -37,7 +36,7 @@ export default class ModalButtonComplete extends Component {
 
     render() {
         return (
-            <OverlayTrigger delayShow="400" placement="left" overlay={<Tooltip>{"View submitted reviews"}</Tooltip>}>
+            <OverlayTrigger delayShow="400" placement="left" overlay={<Tooltip>{"View submitted review(s)"}</Tooltip>}>
                 <Button bsStyle='success' bsSize="xsmall" onClick={ this.openModal.bind(this) }>
                     <span className='glyphicon glyphicon-ok'/>
                     {this.getModalWithViewReview()}

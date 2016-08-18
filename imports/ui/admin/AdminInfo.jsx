@@ -1,11 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import {Button, Modal, OverlayTrigger, Tooltip, DropdownButton, MenuItem} from 'react-bootstrap';
+import {DropdownButton, MenuItem} from 'react-bootstrap';
 
 import AdminModalButtonComplete from '../AdminModalButtonComplete';
 import AdminModalButtonIncomplete from '../AdminModalButtonIncomplete';
 
-import ReviewForm from '../forms/ReviewForm';
-import ResumeForm from '../forms/ResumeForm';
 import _ from 'lodash';
 
 export default class AdminInfo extends Component {

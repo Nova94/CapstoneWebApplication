@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import {Button, Modal, OverlayTrigger, Tooltip} from 'react-bootstrap';
-import ReviewForm from './forms/ReviewForm';
+import {Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 
 export default class ModalButtonIncomplete extends Component {
