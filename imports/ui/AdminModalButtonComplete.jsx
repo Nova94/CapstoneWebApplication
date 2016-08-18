@@ -20,10 +20,13 @@ export default class ModalButtonComplete extends Component {
         return (
             <Modal bsSize="large" show={this.state.showModal} onHide={ this.closeModal.bind(this) }>
                 <Modal.Header closeButton>
-                    <Modal.Title>Viewing Submitted Review for {this.props.review.revieweeName}</Modal.Title>
+                    <Modal.Title>Viewing Submitted Reviews for {this.props.review[0].revieweeName}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <ViewReview review={this.props.review}/>
+                    {console.log(this.props.review)}
+                        {this.props.review.map((review) => {
+                            return (<ViewReview review={review}/>)
+                    })}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={this.closeModal.bind(this)}>Close</Button>

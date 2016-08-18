@@ -18,26 +18,27 @@ export default class AdminInfo extends Component {
         let review = null;
 
         if(type === 'midterm') {
-             review = _.find(this.props.reviews, (review) => {
+             review = _.filter(this.props.reviews, (review) => {
                 return review.reviewee === this.props.student._id && review.reviewType === 'Midterm';
             });
         } else if (type === 'final') {
-            review = _.find(this.props.reviews, (review) => {
+            review = _.filter(this.props.reviews, (review) => {
                 return review.reviewee === this.props.student._id && review.reviewType === 'Final';
             });
         }
 
+        console.log(review);
         return review;
     }
 
 
 	
     get360ReviewField(type) {
-        const review = this.getReviewForUser(type);
-        if (!review) {
+        const reviews = this.getReviewForUser(type);
+        if (reviews.length == 0) {
             return <ModalButtonIncomplete user={this.props.user} reviewType={type} student={this.props.student}/>
         } else {
-            return <AdminModalButtonComplete review={review}/>
+            return <AdminModalButtonComplete review={reviews}/>
         }
     }
     
