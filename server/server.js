@@ -127,13 +127,19 @@ Router.route('/team/:teamId', {where: 'server'})
     .get(function(){
         var response;
         if(this !== undefined){
-            var data = Meteor.users.find({team: parseInt(this.params.teamId)}).fetch();
-            if(data.length > 0){
+            var data;
+            var nanCheck = isNaN(this.params.teamId);
+            var accessCheck = Meteor.users.findOne(Meteor.userId);
+            if((!nanCheck &&
+                ((accessCheck && accessCheck.role == "admin") || accessCheck.team === parseInt(this.params.teamId)) )) {
+                data = Meteor.users.find({team: parseInt(this.params.teamId)}).fetch();
+            }
+            if(data && data.length > 0){
                 response = data
             }else{
                 response = {
                     "error": true,
-                    "message": "Reviews not found."
+                    "message": "Users not found."
                 }
             }
         }
@@ -174,7 +180,7 @@ Router.route('/:_id/setRole/:role', {where: 'server'})
             if(adminCheck && adminCheck.role == "admin") {
                 data = Meteor.users.update({_id: this.params._id}, {$set: {"role": this.params.role}});
             }
-            
+
             if(data === 1){
                 response = {
                     "message": "Role set."
