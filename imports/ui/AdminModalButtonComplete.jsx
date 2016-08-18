@@ -32,7 +32,7 @@ export default class ModalButtonComplete extends Component {
                 <Modal.Header closeButton>
                     <Modal.Title>
                         Viewing Submitted Review(s) for <strong><u>{this.props.review[0].revieweeName}</u></strong><br/><br/>
-                        Total Point Allocation: {this.getTotalPointAllocation(this.props.review)}
+                        Total Point Allocation: <strong><u>{this.getTotalPointAllocation(this.props.review)}</u></strong>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
