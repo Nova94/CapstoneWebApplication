@@ -2,18 +2,18 @@ import {Reviews} from '../imports/api/reviews.js'
 import {check} from 'meteor/check'
 
 Meteor.users.allow( {
-	update: function() {
-		console.log("usersisclient", Meteor.isClient);
+    update: function() {
+        console.log("usersisclient", Meteor.isClient);
 
-		return Meteor.isServer	;
-	}
+        return Meteor.isServer  ;
+    }
 });
 
 Reviews.allow( {
-	insert: function() {
-		console.log("Reviewisclient", Meteor.isClient);
-		return true;
-	}
+    insert: function() {
+        console.log("Reviewisclient", Meteor.isClient);
+        return true;
+    }
 });
 /*
    Meteor.users.deny( {
@@ -23,23 +23,23 @@ Reviews.allow( {
    });
    */
 if(Meteor.isServer) {
-	Meteor.methods({
-		'insertReviewToUser': function(result) {
-			if (Meteor.userId() && result && result.reviewer === Meteor.userId()) {
-				var schema = Reviews.simpleSchema();
-				check(result, schema);
-				schema.clean(result);
+    Meteor.methods({
+        'insertReviewToUser': function(result) {
+            if (Meteor.userId() && result && result.reviewer === Meteor.userId()) {
+                var schema = Reviews.simpleSchema();
+                check(result, schema);
+                schema.clean(result);
 
-				var exists = Meteor.users.findOne({
-					"_id": Meteor.userId(),
-					"reviews.type": result.reviewType,
-					"reviews.reviewee": result.reviewee});
+                var exists = Meteor.users.findOne({
+                    "_id": Meteor.userId(),
+                    "reviews.type": result.reviewType,
+                    "reviews.reviewee": result.reviewee});
 
-				if(!exists) {
-					Meteor.users.update({_id: Meteor.userId()},
-							{$addToSet: {reviews: result}});
-				}
-			}
-		}
-	});
+                if(!exists) {
+                    Meteor.users.update({_id: Meteor.userId()},
+                            {$addToSet: {reviews: result}});
+                }
+            }
+        }
+    });
 }
