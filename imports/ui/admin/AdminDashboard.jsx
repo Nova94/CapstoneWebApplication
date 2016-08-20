@@ -10,7 +10,7 @@ export default class AdminDashboard extends Component {
 
         this.state = {
             user: null,
-            teamData: null,
+            userData: null,
         };
 
         mixins: [
@@ -27,10 +27,10 @@ export default class AdminDashboard extends Component {
         return ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
     }
 
-    setTeamData() {
-        api.users.getUsersForTeam(this.props.user.team).then(
+    setAllUserData() {
+        api.users.getAllUsers().then(
             (data) => {
-                this.setState({teamData: data});
+                this.setState({userData: data});
             }
         );
     }
@@ -38,7 +38,7 @@ export default class AdminDashboard extends Component {
 
     getCurrentUserDocument() {
         // look through the list of users on this team and get the one that is the current logged in user
-        return _.find(this.state.teamData, (user) => {
+        return _.find(this.state.userData, (user) => {
             if (user._id === this.props.user._id) {
                 return user;
             }
@@ -62,8 +62,8 @@ export default class AdminDashboard extends Component {
     }
 
     getAdminDashboard() {
-        if (!this.state.teamData) {
-            this.setTeamData();
+        if (!this.state.userData) {
+            this.setAllUserData();
         }
 
         return (
@@ -71,9 +71,9 @@ export default class AdminDashboard extends Component {
                 <h2>Admin Dashboard</h2>
                 <AdminInfoList
                     user={this.getCurrentUserDocument()}
-                    students={this.state.teamData}
+                    students={this.state.userData}
                     roles={this.getRoles()}
-                    reviews={this.getAllReviewsFromStudents(this.state.teamData)}
+                    reviews={this.getAllReviewsFromStudents(this.state.userData)}
                     teams={this.getTeams()}
                 />
             </div>
