@@ -35,7 +35,6 @@ export default class AdminDashboard extends Component {
         );
     }
 
-
     getCurrentUserDocument() {
         // look through the list of users on this team and get the one that is the current logged in user
         return _.find(this.state.userData, (user) => {

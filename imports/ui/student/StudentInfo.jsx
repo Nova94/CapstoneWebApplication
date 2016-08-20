@@ -43,7 +43,7 @@ export default class StudentInfo extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.student.services.google.name}</td>
+                <td> {this.props.student.services.google.name} </td>
                 <td>{this.props.student.services.google.email}</td>
                 <td>
                     <center>

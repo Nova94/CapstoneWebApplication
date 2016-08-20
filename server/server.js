@@ -231,7 +231,9 @@ Meteor.publish(null, function () {
             role: 1,
             'services.google.name': 1,
             'services.google.given_name': 1,
-            'services.google.family_name': 1}});
+            'services.google.family_name': 1,
+            'services.google.email': 1
+            }});
     }else{
         this.ready();
     }
