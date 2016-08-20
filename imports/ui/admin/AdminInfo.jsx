@@ -3,6 +3,8 @@ import { DropdownButton, MenuItem } from 'react-bootstrap';
 
 import AdminModalButtonComplete from '../AdminModalButtonComplete';
 import AdminModalButtonIncomplete from '../AdminModalButtonIncomplete';
+import AdminResumeModalButtonComplete from '../AdminResumeModalButtonComplete';
+import AdminResumeModalButtonIncomplete from '../AdminResumeModalButtonIncomplete';
 import api from '../../../client/api.js';
 
 import _ from 'lodash';
@@ -33,7 +35,6 @@ export default class AdminInfo extends Component {
 
         return review;
     }
-
 	
     get360ReviewField(type) {
         const reviews = this.getReviewForUser(type);
@@ -42,6 +43,11 @@ export default class AdminInfo extends Component {
         } else {
             return <AdminModalButtonComplete review={reviews}/>
         }
+    }
+
+    getResumeField() {
+        return <AdminResumeModalButtonIncomplete/>
+        // return <AdminResumeModalButtonComplete/>
     }
 
     setTeam(evt) {
@@ -84,7 +90,7 @@ export default class AdminInfo extends Component {
                 <td>{this.props.student.services.google.email}</td>
                 <td>
                     <center>
-                        {/*{this.getResumeField()}*/}
+                        {this.getResumeField()}
                     </center>
                 </td>
                 <td>
