@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {Button, Modal, OverlayTrigger, Tooltip} from 'react-bootstrap';
-import ViewReview from './forms/ViewReview';
+import ViewReviewSummary from './forms/ViewReviewSummary';
 
 export default class ModalButtonComplete extends Component {
     constructor(props) {
@@ -35,23 +35,11 @@ export default class ModalButtonComplete extends Component {
             <Modal bsSize="large" show={this.state.showModal} onHide={ this.closeModal.bind(this) }>
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        Viewing Submitted Review(s) for
-                        <strong><u>{this.props.review[0].revieweeName}</u></strong>
-                        <br/><br/>
-                        Total Point Allocation:
-                        <strong>
-                            <u>
-                                {this.getTotalPointAllocation(this.props.review)}
-                            </u>
-                        </strong>
+                        Review Summary for <strong><u>{this.props.review[0].revieweeName}</u></strong>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {
-                        this.props.review.map((review) => {
-                            return (<ViewReview review={review}/>)
-                        })
-                    }
+                    <ViewReviewSummary reviews={this.props.review} />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={this.closeModal.bind(this)}>Close</Button>
