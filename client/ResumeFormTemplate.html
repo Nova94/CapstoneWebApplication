@@ -2,6 +2,7 @@
     <h1>Create Resume</h1>
     {{#autoForm collection=Resumes id="insertResume" type="insert"}}
         <fieldset>
+            {{> afQuickField name='userId' value = user._id type="hidden" }}
             {{> afQuickField name='name'}}
             {{> afQuickField name='cellphone'}}
             {{> afQuickField name='email'}}
@@ -13,6 +14,6 @@
             {{> afQuickField name='technologySummary'}}
             {{> afQuickField name='otherInformation'}}
         </fieldset>
-        <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="alert('Your resume has been submitted.')">Submit</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
     {{/autoForm}}
 </template>

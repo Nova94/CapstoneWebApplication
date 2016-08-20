@@ -1,4 +1,5 @@
 import {Reviews} from '../imports/api/reviews.js'
+import {Resumes} from '../imports/api/resumes'
 import {check} from 'meteor/check'
 
 Meteor.users.allow( {
@@ -22,13 +23,15 @@ Reviews.allow( {
    }
    });
    */
+
+
 if(Meteor.isServer) {
     Meteor.methods({
         'insertReviewToUser': function(result) {
             if (Meteor.userId() && result && result.reviewer === Meteor.userId()) {
                 var schema = Reviews.simpleSchema();
-                check(result, schema);
                 schema.clean(result);
+                check(result, schema);
 
                 var exists = Meteor.users.findOne({
                     "_id": Meteor.userId(),
@@ -39,6 +42,22 @@ if(Meteor.isServer) {
                     Meteor.users.update({_id: Meteor.userId()},
                             {$addToSet: {reviews: result}});
                 }
+            }
+        },
+        'insertResumeToUser': function (result) {
+            if (Meteor.userId() && result && result.userId === Meteor.userId() ) {
+              let schema = Resumes.simpleSchema();
+              schema.clean(result);
+              check(result, schema);
+
+              let userExists = Meteor.users.findOne({
+                "_id": Meteor.userId()
+              });
+
+              if(userExists) {
+                Meteor.users.update({_id: Meteor.userId()}, 
+                  {$set: {resume: result}});
+              }
             }
         }
     });
