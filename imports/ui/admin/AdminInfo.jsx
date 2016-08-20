@@ -10,8 +10,13 @@ export default class AdminInfo extends Component {
     constructor(props) {
         super(props);
 
-    }
+        this.state = {
+            role: this.props.student.role,
+            team: this.props.student.team
+        }
 
+    }
+	
     getReviewForUser(type) {
         let review = null;
 
@@ -25,11 +30,11 @@ export default class AdminInfo extends Component {
             });
         }
 
-        console.log(review);
         return review;
     }
 
 
+	
     get360ReviewField(type) {
         const reviews = this.getReviewForUser(type);
         if (reviews.length == 0) {
@@ -39,11 +44,19 @@ export default class AdminInfo extends Component {
         }
     }
 
+    setTeam(evt) {
+        this.setState({team: evt});
+    }
+
+    setRole(evt) {
+        this.setState({role: evt});
+    }
+
     getTeamDropdown() {
         return (
-            <DropdownButton title={this.props.student.team}>
+            <DropdownButton onSelect={this.setTeam.bind(this)} title={this.state.team}>
                 {this.props.teams.map((team) => {
-                    return <MenuItem>{team}</MenuItem>
+                    return <MenuItem eventKey={team}>{team}</MenuItem>
                 })}
             </DropdownButton>
         );
@@ -51,14 +64,14 @@ export default class AdminInfo extends Component {
 
     getRoleDropdown() {
         return (
-            <DropdownButton title={this.props.student.role}>
+            <DropdownButton onSelect={this.setRole.bind(this)} title={this.state.role}>
                 {this.props.roles.map((role) => {
-                    return <MenuItem>{role}</MenuItem>
+                    return <MenuItem eventKey={role}>{role}</MenuItem>
                 })}
             </DropdownButton>
         );
     }
-
+	
     render() {
         return (
             <tr>
