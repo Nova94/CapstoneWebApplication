@@ -1,17 +1,17 @@
-import React, { Component, PropTypes } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
-import { Blaze } from 'meteor/blaze';
-import { Template } from 'meteor/templating';
+import React, {Component, PropTypes} from 'react';
+import {createContainer} from 'meteor/react-meteor-data';
+import {Blaze} from 'meteor/blaze';
+import {Template} from 'meteor/templating';
 
 export default class ReviewForm extends Component {
 
     componentDidMount() {
         var reviewData = this.props;
         this.view = Blaze.renderWithData(
-                Template.ReviewFormTemplate,
-                reviewData,
-                ReactDOM.findDOMNode(this.refs.container)
-                );
+            Template.ReviewFormTemplate,
+            reviewData,
+            ReactDOM.findDOMNode(this.refs.container)
+        );
     }
 
     componentWillUnmount() {
@@ -19,7 +19,7 @@ export default class ReviewForm extends Component {
     }
 
     render() {
-        return <span ref="container" />;
+        return <span ref="container"/>;
     }
 }
 
@@ -34,7 +34,7 @@ AutoForm.addHooks('insertReview', {
             }
         }
     },
-    onSuccess: function() {
+    onSuccess: function () {
         document.location.reload(true);
     }
 });

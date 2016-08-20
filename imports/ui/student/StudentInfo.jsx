@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 import {Button, Modal, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 import ModalButtonComplete from '../ModalButtonComplete';
@@ -16,8 +16,8 @@ export default class StudentInfo extends Component {
     getReviewForUser(type) {
         let review = null;
 
-        if(type === 'midterm') {
-             review = _.find(this.props.user.reviews, (review) => {
+        if (type === 'midterm') {
+            review = _.find(this.props.user.reviews, (review) => {
                 return review.reviewee === this.props.student._id && review.reviewType === 'midterm';
             });
         } else if (type === 'final') {
@@ -34,28 +34,28 @@ export default class StudentInfo extends Component {
             return <ModalButtonIncomplete
                 user={this.props.user}
                 reviewType={type}
-                student={this.props.student} />
+                student={this.props.student}/>
         } else {
             return <ModalButtonComplete review={review}/>
         }
     }
-    
+
     render() {
         return (
-                <tr>
-                    <td>{this.props.student.services.google.name}</td>
-                    <td>{this.props.student.services.google.email}</td>
-                    <td>
-                        <center>
-                            {this.get360ReviewField('midterm')}
-                        </center>
-                    </td>
-                    <td>
-                        <center>
-                            {this.get360ReviewField('final')}
-                        </center>
-                    </td>
-                </tr>
+            <tr>
+                <td>{this.props.student.services.google.name}</td>
+                <td>{this.props.student.services.google.email}</td>
+                <td>
+                    <center>
+                        {this.get360ReviewField('midterm')}
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        {this.get360ReviewField('final')}
+                    </center>
+                </td>
+            </tr>
         );
     }
 }

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import {Button, Modal, OverlayTrigger, Tooltip} from 'react-bootstrap';
+import { Button, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import ReviewForm from './forms/ReviewForm';
 
 
@@ -12,11 +12,15 @@ export default class ModalButtonIncomplete extends Component {
         };
     }
 
-    openModal () { this.setState({ showModal: true }); }
+    openModal() {
+        this.setState({showModal: true});
+    }
 
-    closeModal () { this.setState({ showModal: false }); }
+    closeModal() {
+        this.setState({showModal: false});
+    }
 
-    getModalWithViewReview () {
+    getModalWithViewReview() {
         return (
             <Modal bsSize="large" show={this.state.showModal} onHide={ this.closeModal.bind(this) }>
                 <Modal.Header closeButton>
@@ -37,7 +41,8 @@ export default class ModalButtonIncomplete extends Component {
 
     render() {
         return (
-            <OverlayTrigger delayShow="400" placement="left" overlay={<Tooltip>{"Submit a review for this user"}</Tooltip>}>
+            <OverlayTrigger delayShow="400" placement="left"
+                            overlay={<Tooltip>{"Submit a review for this user"}</Tooltip>}>
                 <Button bsStyle='danger' bsSize="xsmall" onClick={ this.openModal.bind(this) }>
                     <span className='glyphicon glyphicon-remove'/>
                     {this.getModalWithViewReview()}

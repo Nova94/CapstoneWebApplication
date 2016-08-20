@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 import StudentInfoList from './StudentInfoList';
-import { Meteor } from 'meteor/meteor'
-import { createContainer } from 'meteor/react-meteor-data';
+import {Meteor} from 'meteor/meteor'
+import {createContainer} from 'meteor/react-meteor-data';
 import api from '../../../client/api.js';
 
 export default class StudentDashboard extends Component {
@@ -25,32 +25,33 @@ export default class StudentDashboard extends Component {
             }
         );
     }
+
     getCurrentUserDocument() {
         // look through the list of users on this team and get the one that is the current logged in user
         return _.find(this.state.teamData, (user) => {
-            if(user._id === this.props.user._id) {
+            if (user._id === this.props.user._id) {
                 return user;
             }
         });
     }
 
     getStudentDashboard() {
-        if(!this.state.teamData) {
+        if (!this.state.teamData) {
             this.setTeamData();
         }
 
         return (
             <div>
                 <h2>Student Dashboard</h2>
-                <StudentInfoList user={this.getCurrentUserDocument()} students={this.state.teamData} />
+                <StudentInfoList user={this.getCurrentUserDocument()} students={this.state.teamData}/>
             </div>
         );
     }
 
     render() {
-        if(this.props.loggingIn) {
+        if (this.props.loggingIn) {
             return (<h4>Loggin In...</h4>);
-        } else if (!this.props.loggingIn && this.props.user){
+        } else if (!this.props.loggingIn && this.props.user) {
             console.log(this.props.user.role);
             return (
                 <div>
@@ -63,8 +64,6 @@ export default class StudentDashboard extends Component {
 
     }
 }
-
-
 
 
 export default createContainer(() => ({
