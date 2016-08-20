@@ -172,7 +172,7 @@ Router.route('/admin/getAllUsers', {where: 'server'})
 
 // update role for a specified id
 Router.route('/:_id/setRole/:role', {where: 'server'})
-    .get(function(){
+    .put(function(){
         var response;
         if(this !== undefined){
             var data;
@@ -198,7 +198,7 @@ Router.route('/:_id/setRole/:role', {where: 'server'})
 
 // update team for a specified id
 Router.route('/:_id/setTeam/:team', {where: 'server'})
-    .get(function(){
+    .put(function(){
         var response;
         if(this !== undefined){
             var data;

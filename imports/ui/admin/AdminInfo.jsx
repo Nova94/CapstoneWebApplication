@@ -3,6 +3,7 @@ import { DropdownButton, MenuItem } from 'react-bootstrap';
 
 import AdminModalButtonComplete from '../AdminModalButtonComplete';
 import AdminModalButtonIncomplete from '../AdminModalButtonIncomplete';
+import api from '../../../client/api.js';
 
 import _ from 'lodash';
 
@@ -33,7 +34,6 @@ export default class AdminInfo extends Component {
         return review;
     }
 
-
 	
     get360ReviewField(type) {
         const reviews = this.getReviewForUser(type);
@@ -46,10 +46,13 @@ export default class AdminInfo extends Component {
 
     setTeam(evt) {
         this.setState({team: evt});
+        api.users.updateUserTeam(this.props.student._id, evt);
+
     }
 
     setRole(evt) {
         this.setState({role: evt});
+        api.users.updateUserRole(this.props.student._id, evt);
     }
 
     getTeamDropdown() {
