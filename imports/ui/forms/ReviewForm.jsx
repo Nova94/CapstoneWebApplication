@@ -8,10 +8,10 @@ export default class ReviewForm extends Component {
     componentDidMount() {
         var reviewData = this.props;
         this.view = Blaze.renderWithData(
-            Template.ReviewFormTemplate,
-            reviewData,
-            ReactDOM.findDOMNode(this.refs.container)
-        );
+                Template.ReviewFormTemplate,
+                reviewData,
+                ReactDOM.findDOMNode(this.refs.container)
+                );
     }
 
     componentWillUnmount() {
@@ -30,8 +30,11 @@ AutoForm.addHooks('insertReview', {
                 console.log("Insert Error:", error);
             } else {
                 //console.log("Document inserted:", result);
-		        Meteor.call('insertReviewToUser', this.insertDoc);
+                Meteor.call('insertReviewToUser', this.insertDoc);
             }
         }
+    },
+    onSuccess: function() {
+        document.location.reload(true);
     }
 });
