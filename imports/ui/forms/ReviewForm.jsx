@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
-import { Blaze } from 'meteor/blaze';
-import { Template } from 'meteor/templating';
+import React, {Component, PropTypes} from 'react';
+import {createContainer} from 'meteor/react-meteor-data';
+import {Blaze} from 'meteor/blaze';
+import {Template} from 'meteor/templating';
 
 export default class ReviewForm extends Component {
 
@@ -19,7 +19,7 @@ export default class ReviewForm extends Component {
     }
 
     render() {
-        return <span ref="container" />;
+        return <span ref="container"/>;
     }
 }
 
@@ -30,8 +30,11 @@ AutoForm.addHooks('insertReview', {
                 console.log("Insert Error:", error);
             } else {
                 //console.log("Document inserted:", result);
-		        Meteor.call('insertReviewToUser', this.insertDoc);
+                Meteor.call('insertReviewToUser', this.insertDoc);
             }
         }
+    },
+    onSuccess: function () {
+        document.location.reload(true);
     }
 });

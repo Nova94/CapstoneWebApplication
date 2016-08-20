@@ -24,43 +24,36 @@ export default class AdminDashboard extends Component {
     }
 
     getTeams() {
-        return ['1','2','3','4','5','6','7','8','9','10'];
+        return ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+    }
+
+    setTeamData() {
+        api.users.getUsersForTeam(this.props.user.team).then(
+            (data) => {
+                this.setState({teamData: data});
+            }
+        );
     }
 
 
-	    componentDidMount() {
-	        if(this.props.user) {
-
-	        }
-	    }
-
-	    setTeamData() {
-	        api.users.getUsersForTeam(this.props.user.team).then(
-	            (data) => {
-	                this.setState({teamData: data});
-	            }
-	        );
-	    }
-  
-	
     getCurrentUserDocument() {
         // look through the list of users on this team and get the one that is the current logged in user
         return _.find(this.state.teamData, (user) => {
-            if(user._id === this.props.user._id) {
+            if (user._id === this.props.user._id) {
                 return user;
             }
         });
     }
 
     getAllReviewsFromStudents(students) {
-        if(!students) {
+        if (!students) {
             return null;
         }
 
         var allReviews = [];
 
-        for(var i = 0; i < students.length; i++) {
-            if(students[i].reviews) {
+        for (var i = 0; i < students.length; i++) {
+            if (students[i].reviews) {
                 allReviews = allReviews.concat(students[i].reviews);
             }
         }
@@ -69,7 +62,7 @@ export default class AdminDashboard extends Component {
     }
 
     getAdminDashboard() {
-        if(!this.state.teamData) {
+        if (!this.state.teamData) {
             this.setTeamData();
         }
 
@@ -88,9 +81,9 @@ export default class AdminDashboard extends Component {
     }
 
     render() {
-        if(this.props.loggingIn) {
+        if (this.props.loggingIn) {
             return (<h4>Logging In...</h4>);
-        } else if (!this.props.loggingIn && this.props.user){
+        } else if (!this.props.loggingIn && this.props.user) {
             return (
                 <div>
                     {this.getAdminDashboard()}

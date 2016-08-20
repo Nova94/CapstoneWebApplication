@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import {Button, Modal, OverlayTrigger, Tooltip} from 'react-bootstrap';
+import { Button, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import ViewReview from './forms/ViewReview';
-import _ from 'lodash';
 
 export default class ModalButtonComplete extends Component {
     constructor(props) {
@@ -12,11 +11,15 @@ export default class ModalButtonComplete extends Component {
         };
     }
 
-    openModal () { this.setState({ showModal: true }); }
+    openModal() {
+        this.setState({showModal: true});
+    }
 
-    closeModal () { this.setState({ showModal: false }); }
+    closeModal() {
+        this.setState({showModal: false});
+    }
 
-    getModalWithViewReview () {
+    getModalWithViewReview() {
         return (
             <Modal bsSize="large" show={this.state.showModal} onHide={ this.closeModal.bind(this) }>
                 <Modal.Header closeButton>

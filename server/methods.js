@@ -1,4 +1,5 @@
 import {Reviews} from '../imports/api/reviews.js'
+import {check} from 'meteor/check'
 
 Meteor.users.allow( {
     update: function() {
@@ -15,20 +16,30 @@ Reviews.allow( {
     }
 });
 /*
-Meteor.users.deny( {
-	update: function() {
-		return false;
-	}
-});
-*/
+   Meteor.users.deny( {
+   update: function() {
+   return false;
+   }
+   });
+   */
 if(Meteor.isServer) {
-	Meteor.methods({
-		'insertReviewToUser': function(result) {
-			//console.log(result.reviewer, Meteor.userId(), result.reviewer === Meteor.userId());
-			if (Meteor.userId() && result && result.reviewer === Meteor.userId()) {
-				Meteor.users.update({_id: Meteor.userId()},
-						{$addToSet: {reviews: result}});
-			}
-		}
-	});
+    Meteor.methods({
+        'insertReviewToUser': function(result) {
+            if (Meteor.userId() && result && result.reviewer === Meteor.userId()) {
+                var schema = Reviews.simpleSchema();
+                check(result, schema);
+                schema.clean(result);
+
+                var exists = Meteor.users.findOne({
+                    "_id": Meteor.userId(),
+                    "reviews.type": result.reviewType,
+                    "reviews.reviewee": result.reviewee});
+
+                if(!exists) {
+                    Meteor.users.update({_id: Meteor.userId()},
+                            {$addToSet: {reviews: result}});
+                }
+            }
+        }
+    });
 }
