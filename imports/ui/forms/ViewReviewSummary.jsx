@@ -17,12 +17,12 @@ const teamLeadFieldNameToViewName = {
 };
 
 const fieldValues = {
+    'Unknown or N/A': 0,
     "Poor": 1,
     'Below Average': 2,
     'Average': 3,
     'Above Average': 4,
-    'Excellent': 5,
-    'Unknown or N/A': 0
+    'Excellent': 5
 };
 
 export default class ViewReviewSummary extends Component {
@@ -32,41 +32,37 @@ export default class ViewReviewSummary extends Component {
 
     getAllFieldCounts() {
         let counts = {
-            technical: 0,
-            teamwork: 0,
-            leadership: 0,
-            communication: 0,
-            cooperation: 0,
-            initiative: 0,
-            teamFocus: 0,
-            contribution: 0,
-            workEthic: 0
+            technical: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            teamwork: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            leadership: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            communication: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            cooperation: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            initiative: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            teamFocus: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            contribution: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            workEthic: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            leadership: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            organization: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
+            delegation: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0}
         };
-
+        console.log(this.props.reviews);
         this.props.reviews.map((review) => {
-            let fields = review.fields;
+            console.log(review.reviewer);
+            const fields = review.fields;
+            const teamLeadFields = review.teamLead;
 
-            for(var key in fields) {
-                counts[key] += fieldValues[fields[key]];
+            for(let fieldKey in fields) {
+                let skillName = fields[fieldKey];
+                let fieldIntValue = fieldValues[skillName];
+
+                counts[fieldKey][fieldIntValue] += 1;
             }
-        });
 
+            for(var teamLeadFieldKey in teamLeadFields) {
+                let teamLeadSkillName = teamLeadFields[teamLeadFieldKey];
+                let teamLeadFieldIntValue = fieldValues[teamLeadSkillName];
 
-        return counts;
-    }
-
-    getAllTeamLeadFieldCounts() {
-        let counts = {
-            leadership: 0,
-            organization: 0,
-            delegation: 0
-        };
-
-        this.props.reviews.map((review) => {
-            let teamLead = review.teamLead;
-
-            for(var key in teamLead) {
-                counts[key] += fieldValues[teamLead[key]];
+                counts[teamLeadFieldKey][teamLeadFieldIntValue] += 1;
             }
         });
 
@@ -80,7 +76,8 @@ export default class ViewReviewSummary extends Component {
         };
 
         const fieldCounts = this.getAllFieldCounts();
-        const teamLeadCounts = this.getAllTeamLeadFieldCounts();
+        console.log(fieldCounts);
+
         return (
             <Panel defaultExpanded header={reviews.reviewType} bsStyle="success">
                 <Table fill striped condensed hover>
@@ -97,40 +94,58 @@ export default class ViewReviewSummary extends Component {
                     </thead>
                     <tbody>
                     <tr>
-                        <th>Technical</th>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>4</td>
-                        <td>1</td>
+                        <th>Technical Skill</th>
+                        <td>{fieldCounts.technical[0]}</td>
+                        <td>{fieldCounts.technical[1]}</td>
+                        <td>{fieldCounts.technical[2]}</td>
+                        <td>{fieldCounts.technical[3]}</td>
+                        <td>{fieldCounts.technical[4]}</td>
+                        <td>{fieldCounts.technical[5]}</td>
                     </tr>
                     <tr>
-                        <th>Teamwork</th>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>4</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <th>Leadership</th>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>4</td>
-                        <td>1</td>
+                        <th>Work Ethic</th>
+                        <td>{fieldCounts.workEthic[0]}</td>
+                        <td>{fieldCounts.workEthic[1]}</td>
+                        <td>{fieldCounts.workEthic[2]}</td>
+                        <td>{fieldCounts.workEthic[3]}</td>
+                        <td>{fieldCounts.workEthic[4]}</td>
+                        <td>{fieldCounts.workEthic[5]}</td>
                     </tr>
                     <tr>
                         <th>Communication</th>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>4</td>
-                        <td>1</td>
+                        <td>{fieldCounts.communication[0]}</td>
+                        <td>{fieldCounts.communication[1]}</td>
+                        <td>{fieldCounts.communication[2]}</td>
+                        <td>{fieldCounts.communication[3]}</td>
+                        <td>{fieldCounts.communication[4]}</td>
+                        <td>{fieldCounts.communication[5]}</td>
+                    </tr>
+                    <tr>
+                        <th>Initiative</th>
+                        <td>{fieldCounts.initiative[0]}</td>
+                        <td>{fieldCounts.initiative[1]}</td>
+                        <td>{fieldCounts.initiative[2]}</td>
+                        <td>{fieldCounts.initiative[3]}</td>
+                        <td>{fieldCounts.initiative[4]}</td>
+                        <td>{fieldCounts.initiative[5]}</td>
+                    </tr>
+                    <tr>
+                        <th>Team Focus</th>
+                        <td>{fieldCounts.teamFocus[0]}</td>
+                        <td>{fieldCounts.teamFocus[1]}</td>
+                        <td>{fieldCounts.teamFocus[2]}</td>
+                        <td>{fieldCounts.teamFocus[3]}</td>
+                        <td>{fieldCounts.teamFocus[4]}</td>
+                        <td>{fieldCounts.teamFocus[5]}</td>
+                    </tr>
+                    <tr>
+                        <th>Contribution</th>
+                        <td>{fieldCounts.contribution[0]}</td>
+                        <td>{fieldCounts.contribution[1]}</td>
+                        <td>{fieldCounts.contribution[2]}</td>
+                        <td>{fieldCounts.contribution[3]}</td>
+                        <td>{fieldCounts.contribution[4]}</td>
+                        <td>{fieldCounts.contribution[5]}</td>
                     </tr>
                     </tbody>
                 </Table>

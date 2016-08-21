@@ -35,11 +35,11 @@ export default class ModalButtonComplete extends Component {
             <Modal bsSize="large" show={this.state.showModal} onHide={ this.closeModal.bind(this) }>
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        Review Summary for <strong><u>{this.props.review[0].revieweeName}</u></strong>
+                        Review Summary for <strong><u>{this.props.reviews[0].revieweeName}</u></strong>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <ViewReviewSummary reviews={this.props.review} />
+                    <ViewReviewSummary reviews={this.props.reviews} />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={this.closeModal.bind(this)}>Close</Button>

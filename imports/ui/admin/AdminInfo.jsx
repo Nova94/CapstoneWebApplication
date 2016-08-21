@@ -25,11 +25,11 @@ export default class AdminInfo extends Component {
 
         if (type === 'midterm') {
             review = _.filter(this.props.reviews, (review) => {
-                return review.reviewee === this.props.student._id && review.reviewType === 'Midterm';
+                return review.reviewee === this.props.student._id && review.reviewType === 'midterm';
             });
         } else if (type === 'final') {
             review = _.filter(this.props.reviews, (review) => {
-                return review.reviewee === this.props.student._id && review.reviewType === 'Final';
+                return review.reviewee === this.props.student._id && review.reviewType === 'final';
             });
         }
 
@@ -41,7 +41,7 @@ export default class AdminInfo extends Component {
         if (reviews.length == 0) {
             return <AdminModalButtonIncomplete user={this.props.user} reviewType={type} student={this.props.student}/>
         } else {
-            return <AdminModalButtonComplete review={reviews}/>
+            return <AdminModalButtonComplete reviews={reviews}/>
         }
     }
 
