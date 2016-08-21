@@ -45,9 +45,9 @@ export default class ViewReviewSummary extends Component {
             organization: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0},
             delegation: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 0: 0}
         };
-        console.log(this.props.reviews);
+
         this.props.reviews.map((review) => {
-            console.log(review.reviewer);
+
             const fields = review.fields;
             const teamLeadFields = review.teamLead;
 
@@ -76,7 +76,6 @@ export default class ViewReviewSummary extends Component {
         };
 
         const fieldCounts = this.getAllFieldCounts();
-        console.log(fieldCounts);
 
         return (
             <Panel defaultExpanded header={reviews.reviewType} bsStyle="success">
