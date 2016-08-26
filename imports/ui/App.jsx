@@ -12,7 +12,8 @@ export default class App extends Component {
         return (
             <div id="wrapper">
                 <div id="banner">
-                    <div id="psuBarIcon"></div>
+                    <div id="psuBarIcon">
+                    </div>
                     <p id="psuHeaderText">Portland State University Capstone Website</p>
                 </div>
                 <GoogleUIWrapper />

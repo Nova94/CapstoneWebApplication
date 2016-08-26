@@ -95,7 +95,7 @@ h1 {
 	width: 100px;
 	height: 60px;
 	margin-left: 50px;
-	background: url(../../img/psuIcon.png) no-repeat;
+	background: url(../imports/ui/img/psuIcon.png) no-repeat;
 	background-size: 70px 70px;
 	float:left;
 	/*box-shadow: 0 0 1px rgba(0, 0, 0, .8);
@@ -104,17 +104,16 @@ h1 {
 }
 
 
-/*@media (max-width: 600px) {*/
-    /*li {*/
-        /*padding: 12px 15px;*/
-    /*}*/
+/*!******************************************************/
+    /*IMAGES*/
+/******************************************************!*/
 
-    /*.search {*/
-        /*width: 150px;*/
-        /*clear: both;*/
-    /*}*/
+#carImgOne {
+    width: 100%;
+    height: 400px;
+}
 
-    /*.new-task input {*/
-        /*padding-bottom: 5px;*/
-    /*}*/
-/*}*/
+#carImgTwo {
+    width: 100%;
+    height: 400px;
+}
