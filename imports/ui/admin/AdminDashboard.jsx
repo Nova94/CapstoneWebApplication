@@ -14,7 +14,7 @@ export default class AdminDashboard extends Component {
         };
 
         mixins: [
-            Router.State, Router.Navigation, ReactMeteorData
+            ReactMeteorData
         ];
     }
 

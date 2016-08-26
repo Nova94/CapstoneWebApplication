@@ -48,6 +48,7 @@ import { Users } from '../imports/api/users.js';
 // },
 
 // route to display all reviews that a specified reviewer has submitted
+/*
 Router.route('/reviews/:reviewer', {where: 'server'})
     .get(function(){
         var response;
@@ -223,6 +224,7 @@ Router.route('/:_id/setTeam/:team', {where: 'server'})
     });
 
 
+*/
 // publishing some user fields
 Meteor.publish(null, function () {
     if (this.userId) {
