@@ -8,10 +8,13 @@ export default class AdminInfoList extends Component {
     }
 
     renderAdminInfoList() {
+        if(!this.props.students){
+            return null;
+        }
         return this.props.students.map((student) => {
-            if(student._id === this.props.user._id) {
-                return null;
-            }
+            // if(student._id === this.props.user._id) {
+            //     return null;
+            // }
 
             var reviewsForCurrentStudent = _.filter(this.props.reviews, function(review) {
                 return review.reviewee === student._id;
@@ -52,7 +55,7 @@ export default class AdminInfoList extends Component {
             const style = {
                 width: '50%',
                 margin: '0 auto'
-            }
+            };
             return (
                 <div style={style}>
                     <h2>No Team Data</h2>

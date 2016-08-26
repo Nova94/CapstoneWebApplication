@@ -64,6 +64,7 @@ export default class AdminDashboard extends Component {
         if (!this.state.userData) {
             this.setAllUserData();
         }
+        console.log(this.state.userData);
 
         return (
             <div>
@@ -80,6 +81,9 @@ export default class AdminDashboard extends Component {
     }
 
     render() {
+        if(this.props.user && this.props.user.role != 'admin'){
+            return <h2>You are not an admin</h2>
+        }
         if (this.props.loggingIn) {
             return (<h4>Logging In...</h4>);
         } else if (!this.props.loggingIn && this.props.user) {

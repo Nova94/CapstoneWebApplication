@@ -153,10 +153,10 @@ Router.route('/admin/getAllUsers', {where: 'server'})
         var response;
         if(this !== undefined){
             var data;
-            var adminCheck = Meteor.users.findOne(Meteor.userId);
-            if(adminCheck && adminCheck.role == "admin") {
-                data = Meteor.users.find().fetch();
-            }
+            // var adminCheck = Meteor.users.findOne(Meteor.userId);
+
+            data = Meteor.users.find().fetch();
+
             if(data && data.length > 0){
                 response = data
             }else{
