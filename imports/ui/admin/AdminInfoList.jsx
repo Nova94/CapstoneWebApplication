@@ -61,7 +61,7 @@ export default class AdminInfoList extends Component {
         }
 
         return (
-            <Panel defaultExpanded header="Your Team" bsStyle="info">
+            <Panel defaultExpanded header="All Users">
                 <Table fill striped bordered condensed>
                     {this.getAdminInfoHeader()}
                     {this.renderAdminInfoList()}
