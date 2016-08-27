@@ -18,14 +18,12 @@ export default class AdminInfoList extends Component {
             });
 
             return (
-                <tbody>
                     <AdminInfo
                         reviews={reviewsForCurrentStudent}
                         student={student}
                         teams={this.props.teams}
                         roles={this.props.roles}
                     />
-                </tbody>
             );
         });
     }
@@ -64,7 +62,9 @@ export default class AdminInfoList extends Component {
             <Panel defaultExpanded header="All Users">
                 <Table fill striped bordered condensed>
                     {this.getAdminInfoHeader()}
-                    {this.renderAdminInfoList()}
+                    <tbody>
+                        {this.renderAdminInfoList()}
+                    </tbody>
                 </Table>
             </Panel>
         );

@@ -13,9 +13,7 @@ export default class StudentInfoList extends Component {
                 return null;
             }
             return (
-                <tbody>
                 <StudentInfo user={this.props.user} student={student}/>
-                </tbody>
             );
         });
     }
@@ -50,7 +48,9 @@ export default class StudentInfoList extends Component {
             <Panel defaultExpanded header="Your Team" bsStyle="info">
                 <Table fill striped bordered condensed>
                     {this.getStudentInfoHeader()}
-                    {this.renderStudentInfoList()}
+                    <tbody>
+                        {this.renderStudentInfoList()}
+                    </tbody>
                 </Table>
             </Panel>
         );
