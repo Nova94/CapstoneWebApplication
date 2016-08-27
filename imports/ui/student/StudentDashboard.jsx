@@ -18,6 +18,9 @@ export default class StudentDashboard extends Component {
              ReactMeteorData
         ];
     }
+    componentDidMount () {
+        document.title = "Capstone: Student Dashboard";
+    }
 
     setTeamData() {
         api.users.getUsersForTeam(this.props.user.team).then(
