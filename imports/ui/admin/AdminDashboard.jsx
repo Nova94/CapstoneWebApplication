@@ -80,6 +80,9 @@ export default class AdminDashboard extends Component {
     }
 
     render() {
+        if(this.props.user && this.props.user.role !== 'admin') {
+            return <center><h2>Unauthorized</h2></center>;
+        }
         if (this.props.loggingIn) {
             return (<h4>Logging In...</h4>);
         } else if (!this.props.loggingIn && this.props.user) {

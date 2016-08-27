@@ -56,7 +56,6 @@ export default class StudentDashboard extends Component {
         if (this.props.loggingIn) {
             return (<h4>Logging In...</h4>);
         } else if (!this.props.loggingIn && this.props.user) {
-            //console.log(this.props.user.role);
             return (
                 <div>
                     {this.getStudentDashboard()}
