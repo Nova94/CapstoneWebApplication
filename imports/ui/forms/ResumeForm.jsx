@@ -22,3 +22,18 @@ export default class ResumeForm extends Component {
         return <span ref="container" />;
     }
 }
+
+AutoForm.addHooks('insertResume', {
+    after: {
+        insert: function(error, result) {
+            if(error) {
+                console.log('Insert Error:', error);
+            } else {
+                Meteor.call('insertResumeToUser', this.insertDoc);
+            }
+        }
+    },
+    onSuccess: function() {
+        document.location.reload(true);
+    }
+});

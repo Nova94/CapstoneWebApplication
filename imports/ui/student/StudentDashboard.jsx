@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import StudentInfoList from './StudentInfoList';
+import SubmitResume from './SubmitResume';
 import {Meteor} from 'meteor/meteor'
 import {createContainer} from 'meteor/react-meteor-data';
 import api from '../../../client/api.js';
@@ -14,8 +15,11 @@ export default class StudentDashboard extends Component {
         };
 
         mixins: [
-            Router.State, Router.Navigation, ReactMeteorData
+             ReactMeteorData
         ];
+    }
+    componentDidMount () {
+        document.title = "Capstone: Student Dashboard";
     }
 
     setTeamData() {
@@ -28,7 +32,7 @@ export default class StudentDashboard extends Component {
 
     getCurrentUserDocument() {
         // look through the list of users on this team and get the one that is the current logged in user
-        return _.find(this.state.userData, (user) => {
+        return _.find(this.state.teamData, (user) => {
             if (user._id === this.props.user._id) {
                 return user;
             }
@@ -36,23 +40,25 @@ export default class StudentDashboard extends Component {
     }
 
     getStudentDashboard() {
-        if (!this.state.userData) {
+        if (!this.state.teamData) {
             this.setTeamData();
         }
 
         return (
             <div>
                 <h2>Student Dashboard</h2>
-                <StudentInfoList user={this.getCurrentUserDocument()} students={this.state.userData}/>
+                <p>Name: {this.props.user.services.google.name}</p>
+                <p>Email: {this.props.user.services.google.email}</p>
+                <SubmitResume user={this.getCurrentUserDocument()} />
+                <StudentInfoList user={this.getCurrentUserDocument()} students={this.state.teamData}/>
             </div>
         );
     }
 
     render() {
         if (this.props.loggingIn) {
-            return (<h4>Loggin In...</h4>);
+            return (<h4>Logging In...</h4>);
         } else if (!this.props.loggingIn && this.props.user) {
-            console.log(this.props.user.role);
             return (
                 <div>
                     {this.getStudentDashboard()}

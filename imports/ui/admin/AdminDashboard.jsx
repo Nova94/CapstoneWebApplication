@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import AdminInfoList from './AdminInfoList';
+import { browserHistory } from 'react-router'
 import { Meteor } from 'meteor/meteor'
 import { createContainer } from 'meteor/react-meteor-data';
+
 import api from '../../../client/api.js';
+import AdminInfoList from './AdminInfoList';
 
 export default class AdminDashboard extends Component {
     constructor(props) {
@@ -14,8 +16,12 @@ export default class AdminDashboard extends Component {
         };
 
         mixins: [
-            Router.State, Router.Navigation, ReactMeteorData
+            ReactMeteorData
         ];
+    }
+
+    componentDidMount () {
+        document.title = "Capstone: Admin Dashboard";
     }
 
     getRoles() {
@@ -34,7 +40,6 @@ export default class AdminDashboard extends Component {
             }
         );
     }
-
 
     getCurrentUserDocument() {
         // look through the list of users on this team and get the one that is the current logged in user
@@ -81,6 +86,10 @@ export default class AdminDashboard extends Component {
     }
 
     render() {
+        if(this.props.user && this.props.user.role !== 'admin') {
+            browserHistory.push('/');
+            return <center><h2>Unauthorized</h2></center>;
+        }
         if (this.props.loggingIn) {
             return (<h4>Logging In...</h4>);
         } else if (!this.props.loggingIn && this.props.user) {

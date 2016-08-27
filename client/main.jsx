@@ -7,6 +7,7 @@ import App from '../imports/ui/App.jsx';
 import Homepage from '../imports/ui/Homepage';
 import AdminDashboard from '../imports/ui/admin/AdminDashboard';
 import StudentDashboard from '../imports/ui/student/StudentDashboard';
+import NotFoundPage from '../imports/ui/NotFoundPage';
 
 Meteor.startup(() => {
     render(
@@ -15,6 +16,7 @@ Meteor.startup(() => {
                 <IndexRoute component={Homepage}/>
                 <Route path="admin" component={AdminDashboard}/>
                 <Route path="student" component={StudentDashboard}/>
+                <Route path="*" component={NotFoundPage} />
             </Route>
         </Router>
         , document.getElementById('render-target'));
