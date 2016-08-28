@@ -47,15 +47,7 @@ export default class AdminInfoList extends Component {
 
     render() {
         if(!this.props.students) {
-            const style = {
-                width: '50%',
-                margin: '0 auto'
-            }
-            return (
-                <div style={style}>
-                    <h2>No Team Data</h2>
-                </div>
-            );
+            return null;
         }
 
         return (

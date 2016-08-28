@@ -63,12 +63,14 @@ export default class App extends Component {
                     PSU Capstone Website
                 </div>
                 <Nav style={navBarStyles} bsStyle="tabs" activeKey={this.state.currentTab} onSelect={this.handleNavSelect.bind(this)}>
-                    <NavItem eventKey={1}>Homepage</NavItem>
+                    <NavItem eventKey={1}>Home</NavItem>
                     <NavItem eventKey={2}>Dashboard</NavItem>
                     <GoogleUIWrapper />
                 </Nav>
 
-                {this.props.children}
+                <div style={{'backgroundColor': 'white', 'padding': '20px'}}>
+                    {this.props.children}
+                </div>
 
                 <div style={footerStyle}>
                     <p id="footerText">CS Capstone | PSU</p>

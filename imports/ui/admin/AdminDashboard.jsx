@@ -73,7 +73,7 @@ export default class AdminDashboard extends Component {
 
         return (
             <div>
-                <h2>Admin Dashboard</h2>
+                <h3>Admin Dashboard</h3>
                 <AdminInfoList
                     user={this.getCurrentUserDocument()}
                     students={this.state.userData}

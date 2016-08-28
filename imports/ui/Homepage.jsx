@@ -4,7 +4,8 @@ import {Carousel} from 'react-bootstrap';
 export default class Homepage extends Component {
     render() {
         return (
-            <div style={{'width': 'auto', 'height': 'auto', 'padding': '10px'}}>
+            <div style={{'width': 'auto', 'height': 'auto'}}>
+                <h3>Home</h3>
                 <center>
                     <Carousel style={{'width': '50%', 'height': '50%'}}>
                         <Carousel.Item>

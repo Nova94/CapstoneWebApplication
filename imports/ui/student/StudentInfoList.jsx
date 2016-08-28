@@ -45,7 +45,7 @@ export default class StudentInfoList extends Component {
         }
 
         return (
-            <Panel defaultExpanded header="Your Team" bsStyle="info">
+            <Panel defaultExpanded header="Your Team">
                 <Table fill striped bordered condensed>
                     {this.getStudentInfoHeader()}
                     <tbody>
