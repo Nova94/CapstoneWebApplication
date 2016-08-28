@@ -16,7 +16,7 @@ export default class Homepage extends Component {
                     </Carousel.Item>
                     <Carousel.Item>
                         <img id="carImgTwo" alt="CAPSTONE"
-                             src="./img/psuIcon.png"/>
+                             src="/img/psuIcon.png"/>
                         <Carousel.Caption>
                             <h3>Img Title</h3>
                             <p>Img Caption</p>

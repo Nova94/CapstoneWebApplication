@@ -95,7 +95,7 @@ h1 {
 	width: 100px;
 	height: 60px;
 	margin-left: 50px;
-	background: url(../imports/ui/img/psuIcon.png) no-repeat;
+	background: url(../public/img/psuIcon.png) no-repeat;
 	background-size: 70px 70px;
 	float:left;
 	/*box-shadow: 0 0 1px rgba(0, 0, 0, .8);
