@@ -1,34 +1,32 @@
-import React, { Component } from 'react';
-import { Carousel } from 'react-bootstrap';
+import React, {Component} from 'react';
+import {Carousel} from 'react-bootstrap';
 
 export default class Homepage extends Component {
     render() {
         return (
-            <div>
-                <Carousel>
-                    <Carousel.Item>
-                        <img id="carImgOne" alt="CS"
-                             src="./img/psuIcon.png"/>
-                        <Carousel.Caption>
-                            <h3>Img Title</h3>
-                            <p>Students working</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img id="carImgTwo" alt="CAPSTONE"
-                             src="/img/psuIcon.png"/>
-                        <Carousel.Caption>
-                            <h3>Img Title</h3>
-                            <p>Img Caption</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+            <div style={{'width': 'auto', 'height': 'auto', 'padding': '10px'}}>
+                <center>
+                    <Carousel style={{'width': '50%', 'height': '50%'}}>
+                        <Carousel.Item>
+                            <img id="PeytonLab" alt="Peyton Lab"
+                                 width={900}
+                                 height={500}
+                                 src="http://capstone.unst.pdx.edu/sites/default/files/styles/pdx_collage_large/public/null/PeytonLab.jpg"/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img id="URBN_Transit" alt="Urban Transit"
+                                 width={900}
+                                 height={500}
+                                 src="http://capstone.unst.pdx.edu/sites/default/files/styles/pdx_collage_large/public/URBN_Transit.jpg"/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img id="CellResearch" alt="CellResearch"
+                                 width={900}
+                                 height={500}
+                                 src="http://capstone.unst.pdx.edu/sites/default/files/styles/pdx_collage_large/public/CellResearch.jpg"/>
+                        </Carousel.Item>
                     </Carousel>
-
-                <h2>CS Capstone</h2>
-
-                <p>
-                Hello World
-                </p>
+                </center>
             </div>
         );
     }
