@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
-
 import AdminModalButtonComplete from '../AdminModalButtonComplete';
 import AdminModalButtonIncomplete from '../AdminModalButtonIncomplete';
 import AdminResumeModalButtonComplete from '../AdminResumeModalButtonComplete';

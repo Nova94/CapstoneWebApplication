@@ -1,40 +1,32 @@
-import React, { Component } from 'react';
-import { Button, ButtonGroup } from 'react-bootstrap';
-import { browserHistory } from 'react-router'
+import React, {Component} from 'react';
+import {Carousel} from 'react-bootstrap';
 
 export default class Homepage extends Component {
-    componentDidMount () {
-        document.title = "Capstone: Homepage";
-    }
-
-    navigateToStudentDashboard () {
-        browserHistory.push('/student');
-    }
-    navigateToAdminDashboard () {
-        browserHistory.push('/admin');
-    }
-
-    getNavigationButton() {
-        return (
-            <ButtonGroup>
-                <Button onClick={this.navigateToStudentDashboard}>
-                    Student Dashboard
-                </Button>
-                <Button onClick={this.navigateToAdminDashboard}>
-                    Admin Dashboard
-                </Button>
-            </ButtonGroup>
-        );
-
-    }
-
     render() {
         return (
-            <div>
-                <div>
-                    <h2>Capstone Website - Homepage</h2>
-                    {this.getNavigationButton()}
-                </div>
+            <div style={{'width': 'auto', 'height': 'auto', 'padding': '10px'}}>
+                <center>
+                    <Carousel style={{'width': '50%', 'height': '50%'}}>
+                        <Carousel.Item>
+                            <img id="PeytonLab" alt="Peyton Lab"
+                                 width={900}
+                                 height={500}
+                                 src="http://capstone.unst.pdx.edu/sites/default/files/styles/pdx_collage_large/public/null/PeytonLab.jpg"/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img id="URBN_Transit" alt="Urban Transit"
+                                 width={900}
+                                 height={500}
+                                 src="http://capstone.unst.pdx.edu/sites/default/files/styles/pdx_collage_large/public/URBN_Transit.jpg"/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img id="CellResearch" alt="CellResearch"
+                                 width={900}
+                                 height={500}
+                                 src="http://capstone.unst.pdx.edu/sites/default/files/styles/pdx_collage_large/public/CellResearch.jpg"/>
+                        </Carousel.Item>
+                    </Carousel>
+                </center>
             </div>
         );
     }
