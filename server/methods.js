@@ -68,17 +68,9 @@ if(Meteor.isServer) {
             var data;
             var accessCheck = Meteor.users.findOne({_id: Meteor.userId()});
             if (accessCheck && (accessCheck.role === 'admin' || accessCheck.team === teamId )) {
-                data = Meteor.users.find({team: teamId}, {fields:  {
-                    team: 1,
-                    role: 1,
-                    'services.google.name': 1,
-                    'services.google.given_name': 1,
-                    'services.google.family_name': 1,
-                    'services.google.email': 1,
-                    'reviews.reviewee': 1,
-                    'reviews.reviewType': 1
-                }}).fetch();
+                data = Meteor.users.find({team: teamId}, {}).fetch();
             }
+
             if(data && data.length > 0){
                 response = data
             }else{
