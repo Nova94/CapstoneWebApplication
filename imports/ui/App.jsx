@@ -62,6 +62,7 @@ export default class App extends Component {
                     <img  style={psuIconStyle} src="/img/psuIcon.png"/>
                     PSU Capstone Website
                 </div>
+                <link rel="icon" sizes="16x16 32x32" href="/favicon.ico"/>
                 <Nav style={navBarStyles} bsStyle="tabs" activeKey={this.state.currentTab} onSelect={this.handleNavSelect.bind(this)}>
                     <NavItem eventKey={1}>Home</NavItem>
                     <NavItem eventKey={2}>Dashboard</NavItem>
