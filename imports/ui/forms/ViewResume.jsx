@@ -100,7 +100,7 @@ export default class ViewResume extends Component {
     }
 
     getPanel(title, tableFunction) {
-        return(resumeArray) => {
+        return (resumeArray) => {
             return (
                 <Panel defaultExpanded header={title}>
                     {tableFunction(resumeArray)}
@@ -145,7 +145,7 @@ export default class ViewResume extends Component {
             );
         }
     }
-    
+
     getProjects(projects) {
         if (projects) {
 
@@ -180,7 +180,7 @@ export default class ViewResume extends Component {
     }
 
     getCourses(courses) {
-        if(courses) {
+        if (courses) {
 
             rows = [];
 
@@ -199,20 +199,20 @@ export default class ViewResume extends Component {
 
     getFooterPanel(resume) {
         return (<Panel defaultExpanded header="Summary">
-        <Table fill striped condensed hover>
-            <tbody>
-            <tr>
-                <th>Technology Summary:</th>
-                <td>{resume.technologySummary}</td>
-            </tr>
+            <Table fill striped condensed hover>
+                <tbody>
+                <tr>
+                    <th>Technology Summary:</th>
+                    <td>{resume.technologySummary}</td>
+                </tr>
 
-            <tr>
-                <th>Other Information:</th>
-                <td>{resume.otherInformation}</td>
-            </tr>
-            </tbody>
-        </Table>
-    </Panel>)
+                <tr>
+                    <th>Other Information:</th>
+                    <td>{resume.otherInformation}</td>
+                </tr>
+                </tbody>
+            </Table>
+        </Panel>)
     }
 
     render() {
@@ -222,8 +222,6 @@ export default class ViewResume extends Component {
         let projectsPanel = this.getPanel("Projects", this.getProjects);
         let coursesPanel = this.getPanelTable("Courses", this.getCourses);
         let workExperiencePanel = this.getPanel("Work Experience", this.getWorkExperience);
-
-
 
 
         if (!this.props.user.resume.name) {
@@ -245,7 +243,7 @@ export default class ViewResume extends Component {
 }
 
 function getTasks(tasks) {
-    if(tasks) {
+    if (tasks) {
         rows = [];
         rows.push(<th>Tasks</th>);
         tasks.map((task) => {
@@ -271,7 +269,7 @@ function getTechnologies(technologies) {
 }
 
 function getDegreeDate(degree) {
-    if(degree.obtained) {
+    if (degree.obtained) {
         return (
             <tr>
                 <th>Graduated:</th>
