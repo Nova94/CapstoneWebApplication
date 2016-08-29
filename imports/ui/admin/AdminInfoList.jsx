@@ -9,10 +9,6 @@ export default class AdminInfoList extends Component {
 
     renderAdminInfoList() {
         return this.props.students.map((student) => {
-            if(student._id === this.props.user._id) {
-                return null;
-            }
-
             var reviewsForCurrentStudent = _.filter(this.props.reviews, function(review) {
                 return review.reviewee === student._id;
             });

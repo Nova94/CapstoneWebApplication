@@ -9,9 +9,6 @@ export default class StudentInfoList extends Component {
 
     renderStudentInfoList() {
         return this.props.students.map((student) => {
-            if (student._id === this.props.user._id) {
-                return null;
-            }
             return (
                 <StudentInfo user={this.props.user} student={student}/>
             );
