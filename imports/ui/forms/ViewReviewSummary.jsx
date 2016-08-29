@@ -86,7 +86,7 @@ export default class ViewReviewSummary extends Component {
                 comments.strengths.push(review.strengths);
             }
             if (review.weakness) {
-                comments.strengths.push(review.weakness);
+                comments.weaknesses.push(review.weakness);
             }
             if (review.traitSuggestion) {
                 comments.traitSuggestion.push(review.traitSuggestion);
