@@ -130,57 +130,57 @@ export default class ViewReviewSummary extends Component {
                         <tbody>
                         <tr>
                             <th>Technical Skill</th>
-                            <td>{counts.technical[0]}</td>
-                            <td>{counts.technical[1]}</td>
-                            <td>{counts.technical[2]}</td>
-                            <td>{counts.technical[3]}</td>
-                            <td>{counts.technical[4]}</td>
-                            <td>{counts.technical[5]}</td>
+                            <td>{counts.technical[0] || '-'}</td>
+                            <td>{counts.technical[1] || '-'}</td>
+                            <td>{counts.technical[2] || '-'}</td>
+                            <td>{counts.technical[3] || '-'}</td>
+                            <td>{counts.technical[4] || '-'}</td>
+                            <td>{counts.technical[5] || '-'}</td>
                         </tr>
                         <tr>
                             <th>Work Ethic</th>
-                            <td>{counts.workEthic[0]}</td>
-                            <td>{counts.workEthic[1]}</td>
-                            <td>{counts.workEthic[2]}</td>
-                            <td>{counts.workEthic[3]}</td>
-                            <td>{counts.workEthic[4]}</td>
-                            <td>{counts.workEthic[5]}</td>
+                            <td>{counts.workEthic[0] || '-'}</td>
+                            <td>{counts.workEthic[1] || '-'}</td>
+                            <td>{counts.workEthic[2] || '-'}</td>
+                            <td>{counts.workEthic[3] || '-'}</td>
+                            <td>{counts.workEthic[4] || '-'}</td>
+                            <td>{counts.workEthic[5] || '-'}</td>
                         </tr>
                         <tr>
                             <th>Communication</th>
-                            <td>{counts.communication[0]}</td>
-                            <td>{counts.communication[1]}</td>
-                            <td>{counts.communication[2]}</td>
-                            <td>{counts.communication[3]}</td>
-                            <td>{counts.communication[4]}</td>
-                            <td>{counts.communication[5]}</td>
+                            <td>{counts.communication[0] || '-'}</td>
+                            <td>{counts.communication[1] || '-'}</td>
+                            <td>{counts.communication[2] || '-'}</td>
+                            <td>{counts.communication[3] || '-'}</td>
+                            <td>{counts.communication[4] || '-'}</td>
+                            <td>{counts.communication[5] || '-'}</td>
                         </tr>
                         <tr>
                             <th>Initiative</th>
-                            <td>{counts.initiative[0]}</td>
-                            <td>{counts.initiative[1]}</td>
-                            <td>{counts.initiative[2]}</td>
-                            <td>{counts.initiative[3]}</td>
-                            <td>{counts.initiative[4]}</td>
-                            <td>{counts.initiative[5]}</td>
+                            <td>{counts.initiative[0] || '-'}</td>
+                            <td>{counts.initiative[1] || '-'}</td>
+                            <td>{counts.initiative[2] || '-'}</td>
+                            <td>{counts.initiative[3] || '-'}</td>
+                            <td>{counts.initiative[4] || '-'}</td>
+                            <td>{counts.initiative[5] || '-'}</td>
                         </tr>
                         <tr>
                             <th>Team Focus</th>
-                            <td>{counts.teamFocus[0]}</td>
-                            <td>{counts.teamFocus[1]}</td>
-                            <td>{counts.teamFocus[2]}</td>
-                            <td>{counts.teamFocus[3]}</td>
-                            <td>{counts.teamFocus[4]}</td>
-                            <td>{counts.teamFocus[5]}</td>
+                            <td>{counts.teamFocus[0] || '-'}</td>
+                            <td>{counts.teamFocus[1] || '-'}</td>
+                            <td>{counts.teamFocus[2] || '-'}</td>
+                            <td>{counts.teamFocus[3] || '-'}</td>
+                            <td>{counts.teamFocus[4] || '-'}</td>
+                            <td>{counts.teamFocus[5] || '-'}</td>
                         </tr>
                         <tr>
                             <th>Contribution</th>
-                            <td>{counts.contribution[0]}</td>
-                            <td>{counts.contribution[1]}</td>
-                            <td>{counts.contribution[2]}</td>
-                            <td>{counts.contribution[3]}</td>
-                            <td>{counts.contribution[4]}</td>
-                            <td>{counts.contribution[5]}</td>
+                            <td>{counts.contribution[0] || '-'}</td>
+                            <td>{counts.contribution[1] || '-'}</td>
+                            <td>{counts.contribution[2] || '-'}</td>
+                            <td>{counts.contribution[3] || '-'}</td>
+                            <td>{counts.contribution[4] || '-'}</td>
+                            <td>{counts.contribution[5] || '-'}</td>
                         </tr>
                         </tbody>
                     </Table>
