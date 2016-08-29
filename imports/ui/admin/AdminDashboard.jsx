@@ -26,7 +26,7 @@ export default class AdminDashboard extends Component {
 
     getRoles() {
 
-        return ['team-member', 'team-lead', 'admin'];
+        return ['team-member', 'team-lead', 'admin', 'student'];
     }
 
     getTeams() {
