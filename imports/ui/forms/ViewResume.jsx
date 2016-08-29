@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {Table, Panel} from 'react-bootstrap';
+import moment from 'moment';
 
 export default class ViewResume extends Component {
     constructor(props) {
@@ -45,11 +46,11 @@ export default class ViewResume extends Component {
                         </tr>
                         <tr>
                             <th>Start Date:</th>
-                            <td>{position.startDate}</td>
+                            <td>{moment(position.startDate).format('LL')}</td>
                         </tr>
                         <tr>
                             <th>End Date:</th>
-                            <td>{position.endDate}</td>
+                            <td>{moment(position.endDate).format('LL')}</td>
                         </tr>
                         <tr>
                             <th>City:</th>
@@ -274,12 +275,12 @@ function getDegreeDate(degree) {
         return (
             <tr>
                 <th>Graduated:</th>
-                <td>{degree.graduated}</td>
+                <td>{moment(degree.graduated).format('LL')}</td>
             </tr>);
     }
     return (
         <tr>
             <th>Expected:</th>
-            <td>{degree.expected}</td>
+            <td>{moment(degree.expected).format('LL')}</td>
         </tr>);
 }
