@@ -33,7 +33,7 @@ export default class ViewResumeButton extends Component {
   }
 
   render() {
-    return (<Button bsStyle="success" onClick={this.openModal.bind(this)}>
+    return (<Button onClick={this.openModal.bind(this)}>
       View Resume
       {this.viewResumeModal()}
     </Button>)

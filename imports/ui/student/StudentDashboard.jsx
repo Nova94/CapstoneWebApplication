@@ -40,6 +40,23 @@ export default class StudentDashboard extends Component {
         });
     }
 
+    getResumeButton() {
+        const resumeButtonStyles = {
+            'float': 'right'
+        };
+        const currentUser = this.getCurrentUserDocument();
+        const userResumeExists = currentUser && currentUser.resume && currentUser.resume.name;
+        let resumeButton = null;
+
+         if(userResumeExists){
+            resumeButton = <ViewResumeButton user={currentUser} />;
+         } else {
+            resumeButton = <SubmitResume user={currentUser} />;
+         }
+
+         return <div style={resumeButtonStyles}>{resumeButton}</div>
+    }
+
     getStudentDashboard() {
         if (!this.state.teamData) {
             this.setTeamData();
@@ -48,12 +65,11 @@ export default class StudentDashboard extends Component {
         return (
             <div>
                 <h2>Student Dashboard</h2>
+                {this.getResumeButton()}
                 <p>Name: {this.props.user.services.google.name}</p>
                 <p>Email: {this.props.user.services.google.email}</p>
-                {this.getCurrentUserDocument() && this.getCurrentUserDocument().resume && !this.getCurrentUserDocument().resume.name ?
-                    <SubmitResume user={this.getCurrentUserDocument()} /> :
-                    <ViewResumeButton user={this.getCurrentUserDocument()} />
-                    }
+
+
                 <StudentInfoList user={this.getCurrentUserDocument()} students={this.state.teamData}/>
             </div>
         );
