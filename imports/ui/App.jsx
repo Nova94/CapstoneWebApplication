@@ -20,6 +20,14 @@ export default class App extends Component {
         };
     }
 
+    componentDidUpdate () {
+        // make sure the current selected tab is aligned with the current path
+        const currentPath = this.props.location.pathname;
+        if(this.state.currentTab !== 2 && (currentPath === '/admin' || currentPath === '/student')) {
+            this.setState({currentTab: 2});
+        }
+    }
+
     handleNavSelect (selectedKey) {
         this.setState({currentTab:selectedKey});
         if(selectedKey === 1) {
