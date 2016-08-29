@@ -45,8 +45,9 @@ export default class AdminInfo extends Component {
     }
 
     getResumeField() {
-        return <AdminResumeModalButtonIncomplete/>
-        // return <AdminResumeModalButtonComplete/>
+        {return !this.props.student.resume.name ?
+            <AdminResumeModalButtonIncomplete/> :
+            <AdminResumeModalButtonComplete user={this.props.student}/>}
     }
 
     setTeam(evt) {

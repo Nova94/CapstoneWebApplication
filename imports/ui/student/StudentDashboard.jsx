@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import StudentInfoList from './StudentInfoList';
 import SubmitResume from './SubmitResume';
+import ViewResumeButton from './ViewResumeButton';
 import {Meteor} from 'meteor/meteor'
 import {createContainer} from 'meteor/react-meteor-data';
 import api from '../../../client/api.js';
@@ -49,7 +50,10 @@ export default class StudentDashboard extends Component {
                 <h2>Student Dashboard</h2>
                 <p>Name: {this.props.user.services.google.name}</p>
                 <p>Email: {this.props.user.services.google.email}</p>
-                <SubmitResume user={this.getCurrentUserDocument()} />
+                {!this.getCurrentUserDocument().resume.name ?
+                    <SubmitResume user={this.getCurrentUserDocument()} /> :
+                    <ViewResumeButton user={this.getCurrentUserDocument()} />
+                    }
                 <StudentInfoList user={this.getCurrentUserDocument()} students={this.state.teamData}/>
             </div>
         );

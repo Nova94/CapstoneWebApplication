@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {Button, Modal, OverlayTrigger, Tooltip} from 'react-bootstrap';
-import ViewReview from './forms/ViewReview';
+import ViewResume from './forms/ViewResume';
 
 export default class ModalButtonComplete extends Component {
     constructor(props) {
@@ -23,16 +23,8 @@ export default class ModalButtonComplete extends Component {
     getModalWithViewResume() {
         return (
             <Modal bsSize="large" show={this.state.showModal} onHide={ this.closeModal.bind(this) }>
-                <Modal.Header closeButton>
-                    <Modal.Title>
-
-
-
-
-                        <br/><br/>
-                    </Modal.Title>
-                </Modal.Header>
                 <Modal.Body>
+                    <ViewResume user={this.props.user}/>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={this.closeModal.bind(this)}>Close</Button>

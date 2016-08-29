@@ -102,14 +102,6 @@ let WorkExperience = new SimpleSchema({
         type: String,
         label: "Company Name"
     },
-    "city": {
-        type: String,
-        label: "City"
-    },
-    "state": {
-        type: String,
-        label: "State"
-    },
     "position": {
         type: String,
         label: "Position Title"
@@ -122,6 +114,15 @@ let WorkExperience = new SimpleSchema({
         type: Date,
         label: "End Date"
     },
+    "city": {
+        type: String,
+        label: "City"
+    },
+    "state": {
+        type: String,
+        label: "State"
+    },
+    
     "tasks.$.task": {
         type: String,
         label: "Task/Responsibility",
