@@ -28,17 +28,6 @@ export default class ViewResume extends Component {
         </Panel>)
     }
 
-    getTasks(tasks) {
-        if(tasks) {
-            rows = [];
-            rows.push(<th>Tasks</th>);
-            tasks.map((task) => {
-                rows.push(<tr>{task.task}</tr>)
-            });
-            return rows;
-        }
-    }
-
     getWorkExperience(workExperience) {
         if (workExperience) {
 
@@ -70,7 +59,7 @@ export default class ViewResume extends Component {
                             <th>State:</th>
                             <td>{position.state}</td>
                         </tr>
-                        {this.getTasks(position.tasks)}
+                        {getTasks(position.tasks)}
                         </tbody>
                     </Table>
                 );
@@ -98,37 +87,26 @@ export default class ViewResume extends Component {
         }
     }
 
-    getSkillsPanel(resume) {
-        return (<Panel defaultExpanded header="Skills:">
-            <Table fill striped condensed hover>
-                <tbody>
-                {this.getSkills(resume.skills)}
-                </tbody>
-            </Table>
-        </Panel>)
-    }
-
-    getWorkExperiencePanel(resume) {
-        return (
-            <Panel defaultExpanded header="Work Experience:">
-                {this.getWorkExperience(resume.workExperience)}
-            </Panel>
-        )
-    }
-
-    getDegreeDate(degree) {
-        if(degree.obtained) {
-            return (
-                <tr>
-                    <th>Graduated:</th>
-                    <td>{degree.graduated}</td>
-                </tr>);
+    getPanelTable(title, tableRowFunction) {
+        return (simpleArray) => {
+            return (<Panel defaultExpanded header={title}>
+                <Table fill striped condensed hover>
+                    <tbody>
+                    {tableRowFunction(simpleArray)}
+                    </tbody>
+                </Table>
+            </Panel>)
         }
-        return (
-            <tr>
-                <th>Expected:</th>
-                <td>{degree.expected}</td>
-            </tr>);
+    }
+
+    getPanel(title, tableFunction) {
+        return(resumeArray) => {
+            return (
+                <Panel defaultExpanded header={title}>
+                    {tableFunction(resumeArray)}
+                </Panel>
+            )
+        }
     }
 
     getDegrees(degrees) {
@@ -154,7 +132,7 @@ export default class ViewResume extends Component {
                             <th>State:</th>
                             <td>{degree.state}</td>
                         </tr>
-                        {this.getDegreeDate(degree)}
+                        {getDegreeDate(degree)}
                         </tbody>
                     </Table>
                 );
@@ -165,29 +143,6 @@ export default class ViewResume extends Component {
                     {tables}
                 </div>
             );
-        }
-    }
-
-    getDegreesPanel(resume) {
-        return (
-            <Panel defaultExpanded header="Degrees:">
-                {this.getDegrees(resume.degrees)}
-            </Panel>
-        );
-    }
-    
-    getTechnologies(technologies) {
-        if (technologies) {
-
-            rows = [];
-            rows.push(<th>Technologies:</th>);
-            technologies.map((technology) => {
-                rows.push(<tr>
-                    <th></th>
-                    <td>{technology.technology}</td>
-                </tr>)
-            });
-            return rows;
         }
     }
     
@@ -210,7 +165,7 @@ export default class ViewResume extends Component {
                             <th>Result</th>
                             <td>{project.result}</td>
                         </tr>
-                        {this.getTechnologies(project.tools)}
+                        {getTechnologies(project.tools)}
                         </tbody>
                     </Table>
                 );
@@ -223,14 +178,6 @@ export default class ViewResume extends Component {
             );
         }
     }
-    
-    getProjectsPanel(resume) {
-        return (
-            <Panel defaultExpanded header="Projects">
-                {this.getProjects(resume.projects)}
-            </Panel>
-        );
-    }
 
     getCourses(courses) {
         if(courses) {
@@ -238,10 +185,8 @@ export default class ViewResume extends Component {
             rows = [];
 
             courses.map((c) => {
-                console.log(c)
                 const course = c.course;
 
-                console.log(course)
                 rows.push(<tr>
                     <th>{course.classNumber}</th>
                     <td>{course.className}</td>
@@ -251,18 +196,9 @@ export default class ViewResume extends Component {
 
         }
     }
-    getCoursesPanel(resume) {
-        return (<Panel defaultExpanded header="Courses:">
-            <Table fill striped condensed hover>
-                <tbody>
-                {this.getCourses(resume.courses)}
-                </tbody>
-            </Table>
-        </Panel>)
-    }
 
     getFooterPanel(resume) {
-        return (<Panel defaultExpanded header="Work Experience:">
+        return (<Panel defaultExpanded header="Summary">
         <Table fill striped condensed hover>
             <tbody>
             <tr>
@@ -281,6 +217,14 @@ export default class ViewResume extends Component {
 
     render() {
         const resume = this.props.user.resume;
+        let skillsPanel = this.getPanelTable("Skills", this.getSkills);
+        let degreesPanel = this.getPanel("Degrees", this.getDegrees);
+        let projectsPanel = this.getPanel("Projects", this.getProjects);
+        let coursesPanel = this.getPanelTable("Courses", this.getCourses);
+        let workExperiencePanel = this.getPanel("Work Experience", this.getWorkExperience);
+
+
+
 
         if (!this.props.user.resume.name) {
             return <div>Error: No review found to view.</div>
@@ -289,13 +233,54 @@ export default class ViewResume extends Component {
         return (
             <div>
                 {this.getHeaderPanel(resume)}
-                {this.getSkillsPanel(resume)}
-                {this.getDegreesPanel(resume)}
-                {this.getProjectsPanel(resume)}
-                {this.getCoursesPanel(resume)}
-                {this.getWorkExperiencePanel(resume)}
+                {skillsPanel(resume.skills)}
+                {degreesPanel(resume.degrees)}
+                {projectsPanel(resume.projects)}
+                {coursesPanel(resume.courses)}
+                {workExperiencePanel(resume.workExperience)}
                 {this.getFooterPanel(resume)}
             </div>
         );
     }
+}
+
+function getTasks(tasks) {
+    if(tasks) {
+        rows = [];
+        rows.push(<th>Tasks</th>);
+        tasks.map((task) => {
+            rows.push(<tr>{task.task}</tr>)
+        });
+        return rows;
+    }
+}
+
+function getTechnologies(technologies) {
+    if (technologies) {
+
+        rows = [];
+        rows.push(<th>Technologies:</th>);
+        technologies.map((technology) => {
+            rows.push(<tr>
+                <th></th>
+                <td>{technology.technology}</td>
+            </tr>)
+        });
+        return rows;
+    }
+}
+
+function getDegreeDate(degree) {
+    if(degree.obtained) {
+        return (
+            <tr>
+                <th>Graduated:</th>
+                <td>{degree.graduated}</td>
+            </tr>);
+    }
+    return (
+        <tr>
+            <th>Expected:</th>
+            <td>{degree.expected}</td>
+        </tr>);
 }
