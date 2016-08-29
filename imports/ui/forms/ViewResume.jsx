@@ -99,11 +99,12 @@ export default class ViewResume extends Component {
         }
     }
 
+
     getPanel(title, tableFunction) {
-        return (resumeArray) => {
+        return (objectArray) => {
             return (
                 <Panel defaultExpanded header={title}>
-                    {tableFunction(resumeArray)}
+                    {tableFunction(objectArray)}
                 </Panel>
             )
         }
