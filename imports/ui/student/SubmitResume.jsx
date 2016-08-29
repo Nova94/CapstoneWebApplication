@@ -21,7 +21,7 @@ export default class SubmitResume extends Component {
 
   getModalWithViewResume() {
     return (
-      <Modal bsSize="large" show={this.state.showModal} onHide={ this.closeModal.bind(this) }>
+      <Modal bsSize="large" show={this.state.showModal}>
         <Modal.Body>
           <ResumeForm user={this.props.user} />
         </Modal.Body>
