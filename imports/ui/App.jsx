@@ -36,7 +36,7 @@ export default class App extends Component {
     render() {
         const footerStyle = {
             'display': 'block',
-            'borderRadius': '0 0 10px 4px',
+            'borderRadius': '0 0 10px 10px',
             'backgroundColor': '#6E8D25',
             'height': '50px',
             'width': 'auto'
@@ -47,7 +47,7 @@ export default class App extends Component {
             'padding': '15px',
             'color': 'white',
             'backgroundColor': '#6E8D25',
-            'borderRadius': '10px 4px 0 0',
+            'borderRadius': '10px 10px 0 0',
             'height': '50px',
             'width': 'auto'
         };
