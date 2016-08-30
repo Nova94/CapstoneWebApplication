@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {Table, Panel} from 'react-bootstrap';
 
-export default class StudentInfoList extends Component {
+export default class ViewReview extends Component {
     constructor(props) {
         super(props);
     }

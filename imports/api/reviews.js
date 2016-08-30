@@ -201,7 +201,7 @@ Reviews.attachSchema(new SimpleSchema({
     },
     "weakness": {
         type: String,
-        label: "Weakness",
+        label: "Weaknesses",
         autoform: {
             afFieldInput: {
                 type: "textarea"
@@ -210,7 +210,7 @@ Reviews.attachSchema(new SimpleSchema({
     },
     "traitSuggestion": {
         type: String,
-        label: "Traits",
+        label: "Suggestions",
         autoform: {
             afFieldInput: {
                 type: "textarea"

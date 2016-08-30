@@ -8,24 +8,21 @@ export default class AdminInfoList extends Component {
     }
 
     renderAdminInfoList() {
+        if(!this.props.students){
+            return null;
+        }
         return this.props.students.map((student) => {
-            if(student._id === this.props.user._id) {
-                return null;
-            }
-
             var reviewsForCurrentStudent = _.filter(this.props.reviews, function(review) {
                 return review.reviewee === student._id;
             });
 
             return (
-                <tbody>
                     <AdminInfo
                         reviews={reviewsForCurrentStudent}
                         student={student}
                         teams={this.props.teams}
                         roles={this.props.roles}
                     />
-                </tbody>
             );
         });
     }
@@ -49,22 +46,16 @@ export default class AdminInfoList extends Component {
 
     render() {
         if(!this.props.students) {
-            const style = {
-                width: '50%',
-                margin: '0 auto'
-            }
-            return (
-                <div style={style}>
-                    <h2>No Team Data</h2>
-                </div>
-            );
+            return null;
         }
 
         return (
             <Panel defaultExpanded header="All Users">
                 <Table fill striped bordered condensed>
                     {this.getAdminInfoHeader()}
-                    {this.renderAdminInfoList()}
+                    <tbody>
+                        {this.renderAdminInfoList()}
+                    </tbody>
                 </Table>
             </Panel>
         );

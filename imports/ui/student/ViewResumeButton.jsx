@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import { Button, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import ResumeForm from '../forms/ResumeForm';
+import ViewResume from '../forms/ViewResume';
 
-export default class SubmitResume extends Component {
+export default class ViewResumeButton extends Component {
   constructor(props) {
     super(props);
 
@@ -19,11 +19,11 @@ export default class SubmitResume extends Component {
     this.setState({showModal: false});
   }
 
-  getModalWithViewResume() {
+  viewResumeModal() {
     return (
-      <Modal bsSize="large" show={this.state.showModal}>
+      <Modal bsSize="large" show={this.state.showModal} onHide={ this.closeModal.bind(this) }>
         <Modal.Body>
-          <ResumeForm user={this.props.user} />
+          <ViewResume user={this.props.user}/>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={ this.closeModal.bind(this) }>Close</Button>
@@ -33,9 +33,9 @@ export default class SubmitResume extends Component {
   }
 
   render() {
-    return (<Button bsStyle="danger" onClick={this.openModal.bind(this)}>
-      Submit Resume
-      {this.getModalWithViewResume()}
+    return (<Button onClick={this.openModal.bind(this)}>
+      View Resume
+      {this.viewResumeModal()}
     </Button>)
   }
 }

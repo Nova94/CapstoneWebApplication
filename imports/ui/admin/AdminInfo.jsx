@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
-
 import AdminModalButtonComplete from '../AdminModalButtonComplete';
 import AdminModalButtonIncomplete from '../AdminModalButtonIncomplete';
 import AdminResumeModalButtonComplete from '../AdminResumeModalButtonComplete';
@@ -25,11 +24,11 @@ export default class AdminInfo extends Component {
 
         if (type === 'midterm') {
             review = _.filter(this.props.reviews, (review) => {
-                return review.reviewee === this.props.student._id && review.reviewType === 'Midterm';
+                return review.reviewee === this.props.student._id && review.reviewType === 'midterm';
             });
         } else if (type === 'final') {
             review = _.filter(this.props.reviews, (review) => {
-                return review.reviewee === this.props.student._id && review.reviewType === 'Final';
+                return review.reviewee === this.props.student._id && review.reviewType === 'final';
             });
         }
 
@@ -41,13 +40,14 @@ export default class AdminInfo extends Component {
         if (reviews.length == 0) {
             return <AdminModalButtonIncomplete user={this.props.user} reviewType={type} student={this.props.student}/>
         } else {
-            return <AdminModalButtonComplete review={reviews}/>
+            return <AdminModalButtonComplete reviews={reviews}/>
         }
     }
 
     getResumeField() {
-        return <AdminResumeModalButtonIncomplete/>
-        // return <AdminResumeModalButtonComplete/>
+        {return !this.props.student.resume.name ?
+            <AdminResumeModalButtonIncomplete/> :
+            <AdminResumeModalButtonComplete user={this.props.student}/>}
     }
 
     setTeam(evt) {
@@ -87,7 +87,12 @@ export default class AdminInfo extends Component {
                 <td>{this.props.student.services.google.name}</td>
                 <td>{this.getRoleDropdown()}</td>
                 <td>{this.getTeamDropdown()}</td>
-                <td>{this.props.student.services.google.email}</td>
+                <td>
+                    <a href={`mailto:${this.props.student.services.google.email}.com?Subject=Missing%20Resume&Body=Hi%20${this.props.student.services.google.given_name || ''},%20Can%20you%20please%20submit%20your%20capstone%20resume?%20Thanks.`}
+                       target="_top">
+                        {this.props.student.services.google.email}
+                    </a>
+                </td>
                 <td>
                     <center>
                         {this.getResumeField()}

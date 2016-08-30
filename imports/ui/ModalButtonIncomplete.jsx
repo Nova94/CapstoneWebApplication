@@ -24,7 +24,6 @@ export default class ModalButtonIncomplete extends Component {
         return (
             <Modal bsSize="large" show={this.state.showModal} onHide={ this.closeModal.bind(this) }>
                 <Modal.Header closeButton>
-                    <Modal.Title>Filling out Review for {this.props.student.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <ReviewForm

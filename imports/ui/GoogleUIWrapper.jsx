@@ -14,7 +14,12 @@ export default class GoogleUIWrapper extends Component {
     }
 
     render() {
+        const signInStyles = {
+            'float': 'right',
+            'verticalAlign': 'middle'
+        };
+    
         // Just render a placeholder container that will be filled in
-        return <span id="login" ref="container" />;
+        return <span style={signInStyles} ref="container" />;
     }
 }

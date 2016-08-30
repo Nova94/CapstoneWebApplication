@@ -9,13 +9,8 @@ export default class StudentInfoList extends Component {
 
     renderStudentInfoList() {
         return this.props.students.map((student) => {
-            if (student._id === this.props.user._id) {
-                return null;
-            }
             return (
-                <tbody>
                 <StudentInfo user={this.props.user} student={student}/>
-                </tbody>
             );
         });
     }
@@ -47,10 +42,12 @@ export default class StudentInfoList extends Component {
         }
 
         return (
-            <Panel defaultExpanded header="Your Team" bsStyle="info">
+            <Panel defaultExpanded header="Your Team">
                 <Table fill striped bordered condensed>
                     {this.getStudentInfoHeader()}
-                    {this.renderStudentInfoList()}
+                    <tbody>
+                        {this.renderStudentInfoList()}
+                    </tbody>
                 </Table>
             </Panel>
         );
