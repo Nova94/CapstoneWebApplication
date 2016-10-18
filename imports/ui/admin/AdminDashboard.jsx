@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { browserHistory } from 'react-router'
 import { Meteor } from 'meteor/meteor'
 import { createContainer } from 'meteor/react-meteor-data';
 
@@ -87,7 +86,6 @@ export default class AdminDashboard extends Component {
 
     render() {
         if(this.props.user && this.props.user.role !== 'admin') {
-            browserHistory.push('/');
             return <center><h2>Unauthorized</h2></center>;
         }
         if (this.props.loggingIn) {

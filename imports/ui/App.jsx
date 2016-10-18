@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import GoogleUIWrapper from './GoogleUIWrapper';
 import {Reviews} from '../api/reviews'; //Do Not Remove
 import {Resumes} from '../api/resumes'; //Do Not Remove
-import {Nav, NavItem} from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor'
 import { createContainer } from 'meteor/react-meteor-data';
-import { browserHistory } from 'react-router'
+import AdminDashboard from './admin/AdminDashboard';
+import StudentDashboard from './student/StudentDashboard';
+import Homepage from './Homepage';
+import NotFoundPage from './NotFoundPage';
 
 Template.registerHelper("Reviews", Reviews);
 Template.registerHelper("Resumes", Resumes);
@@ -14,31 +16,23 @@ Template.registerHelper("Resumes", Resumes);
 export default class App extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            currentTab: 1
-        };
     }
 
-    componentDidUpdate () {
-        // make sure the current selected tab is aligned with the current path
-        const currentPath = this.props.location.pathname;
-        if(this.state.currentTab !== 2 && (currentPath === '/admin' || currentPath === '/student')) {
-            this.setState({currentTab: 2});
-        }
-    }
-
-    handleNavSelect (selectedKey) {
-        this.setState({currentTab:selectedKey});
-        if(selectedKey === 1) {
-            browserHistory.push('/')
-        } else if(selectedKey === 2) {
-            if (this.props.user && this.props.user.role === 'admin') {
-                browserHistory.push('/admin')
-            } else {
-                browserHistory.push('/student')
+    getDashboard () {
+        let component = <Homepage />;
+        if (this.props.user) {
+            switch (this.props.user.role) {
+                case 'admin':
+                    component = <AdminDashboard />;
+                    break;
+                case 'student':
+                    component = <StudentDashboard />;
+                    break;
+                default:
+                    component = <NotFoundPage />;
             }
         }
+        return component;
     }
 
     render() {
@@ -59,11 +53,7 @@ export default class App extends Component {
             'height': '50px',
             'width': 'auto'
         };
-        const navBarStyles = {
-            'verticalAlign': 'middle'
-        };
 
-        const dashboardNavDisabled = !this.props.user;
         const psuIconStyle = {'height':'25px', 'width':'25px', 'marginRight': '10px'};
         return (
             <div style={{'margin': '10px'}}>
@@ -72,14 +62,11 @@ export default class App extends Component {
                     PSU Capstone Website
                 </div>
                 <link rel="icon" sizes="16x16 32x32" href="/favicon.ico"/>
-                <Nav style={navBarStyles} bsStyle="tabs" activeKey={this.state.currentTab} onSelect={this.handleNavSelect.bind(this)}>
-                    <NavItem eventKey={1}>Home</NavItem>
-                    <NavItem eventKey={2} disabled={dashboardNavDisabled}>Dashboard</NavItem>
-                    <GoogleUIWrapper />
-                </Nav>
+
+                <GoogleUIWrapper />
 
                 <div style={{'backgroundColor': 'white', 'padding': '20px'}}>
-                    {this.props.children}
+                    {this.getDashboard()}
                 </div>
 
                 <div style={footerStyle}>
