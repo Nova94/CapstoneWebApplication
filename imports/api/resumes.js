@@ -136,15 +136,15 @@ Resumes.attachSchema(new SimpleSchema({
     },
     "name": {
         type: String,
-        label: "Name"
+        label: "*Name"
     },
     "cellphone": {
         type: String,
-        label: "Phone Number"
+        label: "*Phone Number"
     },
     "email": {
         type: String,
-        label: "PDX Email"
+        label: "*PDX Email"
     },
     // "skills": {
     //     label: "Software Engineering Knowledge and Skills"
@@ -172,13 +172,7 @@ Resumes.attachSchema(new SimpleSchema({
     },
     "technologySummary": {
         type: String,
-        label: "Technology Summary",
-        max:2000
-    },
-    "otherInformation": {
-        type: String,
-        label: "Other Information",
+        label: "*Technology Summary",
         max:2000
     }
-
 }));

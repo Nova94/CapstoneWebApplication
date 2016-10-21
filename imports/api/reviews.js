@@ -186,13 +186,16 @@ Reviews.attachSchema(new SimpleSchema({
     },
     "points": {
         type: Number,
-        label: "Point Allocation",
+        label: `*Point Allocation - You have 100 total points to assign across all your teammates. Out of the available
+100 points, how many points would you assign to this team mate (do not give
+yourself any points)? Remember, the sum of all the points you assign to everyone in
+your team except yourself should be 100.`,
         min: 0,
         max: 100
     },
     "strengths": {
         type: String,
-        label: "Strengths",
+        label: "*Strengths",
         autoform: {
             afFieldInput: {
                 type: "textarea"
@@ -201,7 +204,7 @@ Reviews.attachSchema(new SimpleSchema({
     },
     "weakness": {
         type: String,
-        label: "Weaknesses",
+        label: "*Weaknesses",
         autoform: {
             afFieldInput: {
                 type: "textarea"
@@ -210,7 +213,7 @@ Reviews.attachSchema(new SimpleSchema({
     },
     "traitSuggestion": {
         type: String,
-        label: "Suggestions",
+        label: "*Suggestions",
         autoform: {
             afFieldInput: {
                 type: "textarea"

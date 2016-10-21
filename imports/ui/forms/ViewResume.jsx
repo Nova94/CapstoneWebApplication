@@ -207,11 +207,6 @@ export default class ViewResume extends Component {
                     <th>Technology Summary:</th>
                     <td>{resume.technologySummary}</td>
                 </tr>
-
-                <tr>
-                    <th>Other Information:</th>
-                    <td>{resume.otherInformation}</td>
-                </tr>
                 </tbody>
             </Table>
         </Panel>)
